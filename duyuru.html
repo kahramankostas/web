@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dünya Türk Dili Ailesi Günü | Ülkem Yanımda</title>
+    <style>
+        /* Genel Ayarlar */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Hafif gri-beyaz modern arka plan */
+            color: #333;
+            overflow: hidden; /* Sayfa kaydırmayı engeller, odak ortada kalır */
+        }
+
+        /* Arkaplan Süslemesi (Opsiyonel Türk Mavisi Geçiş) */
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(64, 224, 208, 0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+        }
+
+        /* Ana Konteyner */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Başlıklar */
+        h1 {
+            font-size: 2.5rem;
+            color: #008080; /* Turkuaz tonu */
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #555;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            animation: fadeInDown 2s ease-out;
+        }
+
+        /* Logo ve Link Kapsayıcısı */
+        .logo-wrapper {
+            position: relative;
+            width: 400px; /* Logo boyutu */
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        /* Resim (Logo) Stilleri ve Animasyonu */
+        .logo-wrapper img {
+            width: 100%;
+            height: auto;
+            /* Transparan png olduğu için arkası temiz görünür */
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+            animation: breathe 4s infinite ease-in-out; /* Nefes alma animasyonu */
+            cursor: pointer;
+        }
+
+        /* Link/Buton Stili (Resmin Üzerinde) */
+        .meeting-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-decoration: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #008080;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+            opacity: 0; /* Başlangıçta gizli */
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        /* Hover Efektleri */
+        .logo-wrapper:hover .meeting-link {
+            opacity: 1; /* Mouse üzerine gelince buton görünür */
+            top: 50%;
+        }
+
+        .logo-wrapper:hover img {
+            filter: drop-shadow(0 0 20px rgba(64, 224, 208, 0.6)); /* Parlama efekti artar */
+            transform: scale(1.02); /* Hafif büyüme */
+            animation-play-state: paused; /* Üzerine gelince animasyon durur, odaklanır */
+        }
+
+        .meeting-link:hover {
+            background-color: #008080;
+            color: #fff;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* Alt Bilgi */
+        .footer-info {
+            margin-top: 3rem;
+            font-size: 1rem;
+            color: #777;
+            animation: fadeInUp 2s ease-out;
+        }
+        
+        .date-badge {
+            background: #008080;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* --- Animasyon Tanımları --- */
+        
+        /* Nefes Alma / Yüzme Efekti */
+        @keyframes breathe {
+            0% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-15px) scale(1.03); /* Hafif yukarı çıkar ve büyür */
+            }
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+        }
+
+        /* Yukarıdan Aşağı Gelme */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Aşağıdan Yukarı Gelme */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobil Uyumluluk */
+        @media (max-width: 600px) {
+            .logo-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.2rem; }
+            /* Mobilde butonu hep gösterelim ki kullanıcı anlasın */
+            .meeting-link {
+                opacity: 0.8;
+                top: 85%; /* Mobilde resmin altına alalım karışmasın */
+            }
+            .logo-wrapper:hover .meeting-link {
+                top: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="container">
+        <h1>Ülkem Yanımda Platformu</h1>
+        <h2>Dünya Türk Dili Ailesi Günü Etkinliği</h2>
+
+        <div class="logo-wrapper">
+            <img src="duyuru.png" alt="Dünya Türk Dili Ailesi Ağacı">
+            
+            <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDAwN2RhZWQtNmE4Zi00YzU1LWI2ZDItMTVlODQxMGNjMzQy%40thread.v2/0?context=%7b%22Tid%22%3a%222954d0ff-3b51-4a2c-a056-0c0c6b6dced7%22%2c%22Oid%22%3a%227e48b384-b17e-4d09-a957-e148795ca866%22%7d" class="meeting-link" target="_blank">
+                Canlı Yayına Katıl 🎥
+            </a>
+        </div>
+
+        <div class="footer-info">
+            <span class="date-badge">15 Aralık 2025, Pazartesi</span>
+            <p>Saat: 20:00 (TSİ)</p>
+        </div>
+    </div>
+
+</body>
+</html>
