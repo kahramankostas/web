@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akan Galeri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .gallery-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            animation: scroll 40s linear infinite;
+            width: fit-content;
+        }
+
+        .gallery-item {
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            animation-play-state: paused;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .gallery-track:hover {
+            animation-play-state: paused;
+        }
+
+        h1 {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galeri</h1>
+    
+    <div class="gallery-container">
+        <div class="gallery-track" id="galleryTrack"></div>
+    </div>
+
+    <script>
+        // Görseller ve linkleri - Buraya kendi görsellerinizi ve linklerinizi ekleyin
+        const galleryItems = [
+            { img: 'https://picsum.photos/300/200?random=1', link: 'https://example.com/1' },
+            { img: 'https://picsum.photos/300/200?random=2', link: 'https://example.com/2' },
+            { img: 'https://picsum.photos/300/200?random=3', link: 'https://example.com/3' },
+            { img: 'https://picsum.photos/300/200?random=4', link: 'https://example.com/4' },
+            { img: 'https://picsum.photos/300/200?random=5', link: 'https://example.com/5' },
+            { img: 'https://picsum.photos/300/200?random=6', link: 'https://example.com/6' },
+            { img: 'https://picsum.photos/300/200?random=7', link: 'https://example.com/7' },
+            { img: 'https://picsum.photos/300/200?random=8', link: 'https://example.com/8' },
+            { img: 'https://picsum.photos/300/200?random=9', link: 'https://example.com/9' },
+            { img: 'https://picsum.photos/300/200?random=10', link: 'https://example.com/10' },
+            { img: 'https://picsum.photos/300/200?random=11', link: 'https://example.com/11' },
+            { img: 'https://picsum.photos/300/200?random=12', link: 'https://example.com/12' },
+            { img: 'https://picsum.photos/300/200?random=13', link: 'https://example.com/13' },
+            { img: 'https://picsum.photos/300/200?random=14', link: 'https://example.com/14' },
+            { img: 'https://picsum.photos/300/200?random=15', link: 'https://example.com/15' },
+            { img: 'https://picsum.photos/300/200?random=16', link: 'https://example.com/16' },
+            { img: 'https://picsum.photos/300/200?random=17', link: 'https://example.com/17' },
+            { img: 'https://picsum.photos/300/200?random=18', link: 'https://example.com/18' },
+            { img: 'https://picsum.photos/300/200?random=19', link: 'https://example.com/19' },
+            { img: 'https://picsum.photos/300/200?random=20', link: 'https://example.com/20' }
+        ];
+
+        const track = document.getElementById('galleryTrack');
+
+        // Sonsuz döngü için görselleri iki kez ekle
+        const allItems = [...galleryItems, ...galleryItems];
+
+        allItems.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.onclick = () => window.open(item.link, '_blank');
+            
+            const img = document.createElement('img');
+            img.src = item.img;
+            img.alt = 'Galeri görseli';
+            
+            div.appendChild(img);
+            track.appendChild(div);
+        });
+    </script>
+</body>
+</html>
