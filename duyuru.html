@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dünya Türk Dili Ailesi Günü | Ülkem Yanımda</title>
     <style>
         /* Genel Ayarlar */
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Hafif gri-beyaz modern arka plan */
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            /* Hafif gri-beyaz modern arka plan */
             color: #333;
-            overflow: hidden; /* Sayfa kaydırmayı engeller, odak ortada kalır */
+            overflow: hidden;
+            /* Sayfa kaydırmayı engeller, odak ortada kalır */
         }
 
         /* Arkaplan Süslemesi (Opsiyonel Türk Mavisi Geçiş) */
@@ -23,7 +27,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(64, 224, 208, 0.1) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle at center, rgba(64, 224, 208, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
             z-index: -1;
         }
 
@@ -41,7 +45,8 @@
         /* Başlıklar */
         h1 {
             font-size: 2.5rem;
-            color: #008080; /* Turkuaz tonu */
+            color: #008080;
+            /* Turkuaz tonu */
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -52,15 +57,17 @@
             font-size: 1.5rem;
             color: #555;
             font-weight: 300;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
+            /* Boşluk azaltıldı */
             animation: fadeInDown 2s ease-out;
         }
 
         /* Logo ve Link Kapsayıcısı */
         .logo-wrapper {
             position: relative;
-            width: 400px; /* Logo boyutu */
-            height: 400px;
+            width: 320px;
+            /* Boyut küçültüldü (400 -> 320) */
+            height: 320px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -72,8 +79,9 @@
             width: 100%;
             height: auto;
             /* Transparan png olduğu için arkası temiz görünür */
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
-            animation: breathe 4s infinite ease-in-out; /* Nefes alma animasyonu */
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+            animation: breathe 4s infinite ease-in-out;
+            /* Nefes alma animasyonu */
             cursor: pointer;
         }
 
@@ -91,21 +99,26 @@
             font-weight: bold;
             font-size: 1.2rem;
             box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
-            opacity: 0; /* Başlangıçta gizli */
+            opacity: 0;
+            /* Başlangıçta gizli */
             transition: all 0.3s ease;
             white-space: nowrap;
         }
 
         /* Hover Efektleri */
         .logo-wrapper:hover .meeting-link {
-            opacity: 1; /* Mouse üzerine gelince buton görünür */
+            opacity: 1;
+            /* Mouse üzerine gelince buton görünür */
             top: 50%;
         }
 
         .logo-wrapper:hover img {
-            filter: drop-shadow(0 0 20px rgba(64, 224, 208, 0.6)); /* Parlama efekti artar */
-            transform: scale(1.02); /* Hafif büyüme */
-            animation-play-state: paused; /* Üzerine gelince animasyon durur, odaklanır */
+            filter: drop-shadow(0 0 20px rgba(64, 224, 208, 0.6));
+            /* Parlama efekti artar */
+            transform: scale(1.02);
+            /* Hafif büyüme */
+            animation-play-state: paused;
+            /* Üzerine gelince animasyon durur, odaklanır */
         }
 
         .meeting-link:hover {
@@ -116,12 +129,13 @@
 
         /* Alt Bilgi */
         .footer-info {
-            margin-top: 3rem;
+            margin-top: 1.5rem;
+            /* Boşluk azaltıldı */
             font-size: 1rem;
             color: #777;
             animation: fadeInUp 2s ease-out;
         }
-        
+
         .date-badge {
             background: #008080;
             color: white;
@@ -131,15 +145,18 @@
         }
 
         /* --- Animasyon Tanımları --- */
-        
+
         /* Nefes Alma / Yüzme Efekti */
         @keyframes breathe {
             0% {
                 transform: translateY(0px) scale(1);
             }
+
             50% {
-                transform: translateY(-15px) scale(1.03); /* Hafif yukarı çıkar ve büyür */
+                transform: translateY(-15px) scale(1.03);
+                /* Hafif yukarı çıkar ve büyür */
             }
+
             100% {
                 transform: translateY(0px) scale(1);
             }
@@ -147,14 +164,70 @@
 
         /* Yukarıdan Aşağı Gelme */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Aşağıdan Yukarı Gelme */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Layout */
+        .header-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1400px;
+            margin-bottom: 1rem;
+            /* Boşluk azaltıldı */
+            padding: 0 1rem;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .header-titles {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        /* MEB Logosu biraz daha küçük (kullanıcı isteği) */
+        .header-logo.left {
+            width: 75px;
+        }
+
+        /* Ülkem Yanımda logosu (bir tık daha geniş durabilir dengeli olması için) */
+        .header-logo.right {
+            width: 120px;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.05);
         }
 
         /* Mobil Uyumluluk */
@@ -163,31 +236,84 @@
                 width: 300px;
                 height: 300px;
             }
-            h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.2rem; }
+
+            .header-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            /* Mobilde logoların boyutunu biraz küçültelim ve yan yana alalım */
+            .header-logo {
+                width: 80px;
+            }
+
+            /* Mobilde logoları başlığın üstüne yan yana koymak için özel düzen */
+            .header-group {
+                flex-wrap: wrap;
+                flex-direction: row;
+                /* Tekrar row yapıp üstte toplayalım */
+                align-items: flex-start;
+            }
+
+            .header-titles {
+                width: 100%;
+                order: 3;
+                /* Başlık en altta (logolardan sonra) */
+                margin-top: 1rem;
+            }
+
+            /* Logolar üstte sağ-sol */
+            .header-logo.left {
+                order: 1;
+            }
+
+            .header-logo.right {
+                order: 2;
+                margin-left: auto;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
             /* Mobilde butonu hep gösterelim ki kullanıcı anlasın */
             .meeting-link {
                 opacity: 0.8;
-                top: 85%; /* Mobilde resmin altına alalım karışmasın */
+                top: 85%;
+                /* Mobilde resmin altına alalım karışmasın */
             }
+
             .logo-wrapper:hover .meeting-link {
                 top: 85%;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="background-overlay"></div>
 
     <div class="container">
-        <h1>Ülkem Yanımda Platformu</h1>
-        <h2>Dünya Türk Dili Ailesi Günü Etkinliği</h2>
+
+        <div class="header-group">
+            <img src="./index_files/meb.svg" alt="MEB Logo" class="header-logo left">
+            <div class="header-titles">
+                <h1>Ülkem Yanımda Platformu</h1>
+                <h2>Dünya Türk Dili Ailesi Günü Etkinliği</h2>
+            </div>
+            <img src="./index_files/uy.svg" alt="Ülkem Yanımda Logo" class="header-logo right">
+        </div>
 
         <div class="logo-wrapper">
             <img src="duyuru.png" alt="Dünya Türk Dili Ailesi Ağacı">
-            
-            <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDAwN2RhZWQtNmE4Zi00YzU1LWI2ZDItMTVlODQxMGNjMzQy%40thread.v2/0?context=%7b%22Tid%22%3a%222954d0ff-3b51-4a2c-a056-0c0c6b6dced7%22%2c%22Oid%22%3a%227e48b384-b17e-4d09-a957-e148795ca866%22%7d" class="meeting-link" target="_blank">
+
+            <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDAwN2RhZWQtNmE4Zi00YzU1LWI2ZDItMTVlODQxMGNjMzQy%40thread.v2/0?context=%7b%22Tid%22%3a%222954d0ff-3b51-4a2c-a056-0c0c6b6dced7%22%2c%22Oid%22%3a%227e48b384-b17e-4d09-a957-e148795ca866%22%7d"
+                class="meeting-link" target="_blank">
                 Canlı Yayına Katıl 🎥
             </a>
         </div>
@@ -199,4 +325,5 @@
     </div>
 
 </body>
+
 </html>
