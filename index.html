@@ -184,7 +184,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         <img src="./index_files/slayt.jpg" alt="slider" class="d-none d-md-block">
         <img src="./index_files/slayt_narrow.jpg" alt="slider" class="d-md-none">
     </section>
-
+<!--
     <section class="discover">
         <div class="container-md">
             <div class="row justify-content-center text-center">
@@ -270,7 +270,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     <!-- Başlangıç: Hareketli Galeri (scrolling gallery'den alındı) -->
     <section class="moving-gallery">
         <div class="container-md">
-            <h2 class="mg-title">Galeri</h2>
+           <h2 class="mg-title" style="color: #00B6BF; font-weight: bold;">Keşfet</h2>
             <div class="gallery-container">
                 <div class="gallery-track" id="galleryTrack"></div>
             </div>
@@ -294,16 +294,16 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         <script>
             (function(){
                 const galleryItems = [
-                    { img: 'https://picsum.photos/300/200?random=1', link: 'https://example.com/1' },
-                    { img: 'https://picsum.photos/300/200?random=2', link: 'https://example.com/2' },
-                    { img: 'https://picsum.photos/300/200?random=3', link: 'https://example.com/3' },
-                    { img: 'https://picsum.photos/300/200?random=4', link: 'https://example.com/4' },
-                    { img: 'https://picsum.photos/300/200?random=5', link: 'https://example.com/5' },
-                    { img: 'https://picsum.photos/300/200?random=6', link: 'https://example.com/6' },
-                    { img: 'https://picsum.photos/300/200?random=7', link: 'https://example.com/7' },
-                    { img: 'https://picsum.photos/300/200?random=8', link: 'https://example.com/8' },
-                    { img: 'https://picsum.photos/300/200?random=9', link: 'https://example.com/9' },
-                    { img: 'https://picsum.photos/300/200?random=10', link: 'https://example.com/10' }
+                    { img: './index_files/discover-2.png', link: 'https://ulkemyanimda.eba.gov.tr/kitap/' },
+                    { img: './index_files/discover-3.png', link: 'https://www.youtube.com/watch?v=_tyMDDiiZV0' },
+                    { img: './index_files/discover-4.png', link: 'https://www.youtube.com/watch?v=2coMuQQ9qaQ' },
+                    { img: './index_files/discover-1.png', link: 'index_files/haber1.jpg'},
+                    { img: './index_files/discover-5.png', link: 'https://ulkemyanimda.github.io/posta/index.html'},
+                    { img: './index_files/discover-6.jpg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=360'},
+                    { img: './index_files/discover-7.jpeg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=359'},
+                    { img: './index_files/discover-8.jpg', link: 'https://www.youtube.com/watch?v=F4BrdSVBVoM'},
+                    { img: './index_files/discover-9.jpg', link: 'https://www.youtube.com/watch?v=yrtpMH-Y_Ow' },
+                    { img: './index_files/discover-10.jpg', link: 'https://www.youtube.com/watch?v=nvTAqvESLwE' }
                 ];
 
                 const track = document.getElementById('galleryTrack');
