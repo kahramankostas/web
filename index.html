@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html lang="tr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
-    
+<html lang="tr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        body {
+            transition: opacity ease-in 0.2s;
+        }
+
+        body[unresolved] {
+            opacity: 0;
+            display: block;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Ülkem Yanımda Platformu</title>
@@ -17,9 +30,12 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         }
     </script>
 
-    <meta name="description" content="Ülkem Yanımda, yurt dışında yaşayan Türk soylu çocuklar için özel olarak tasarlanmış ücretsiz bir eğitim platformudur. Anadil öğrenimi, Türk kültürü ve gelenekleriyle desteklenen etkileşimli dersler sayesinde çocuklar, hem dil becerilerini geliştirir hem de kültürel bağlarını güçlendirir. Online dersler, eğlenceli aktiviteler ve yapay zeka destekli konuşma pratiği ile Türkçe öğrenimi artık daha erişilebilir! Ülkemizden uzak olsanız da, ‘Ülkem Yanımda’!">
-    <meta name="keywords" content="türkçe eğitimi,  türk kültürü,  yurt dişindaki türkler,  çevrimiçi eğitim, anadil öğretimi, kültürel miras">
-    <meta name="author" content="T.C. Yükseköğretim Ve Yurt Dişi Eğitim Genel Müdürlüğü Yurt Dışı Eğitim Daire Başkanlığı">
+    <meta name="description"
+        content="Ülkem Yanımda, yurt dışında yaşayan Türk soylu çocuklar için özel olarak tasarlanmış ücretsiz bir eğitim platformudur. Anadil öğrenimi, Türk kültürü ve gelenekleriyle desteklenen etkileşimli dersler sayesinde çocuklar, hem dil becerilerini geliştirir hem de kültürel bağlarını güçlendirir. Online dersler, eğlenceli aktiviteler ve yapay zeka destekli konuşma pratiği ile Türkçe öğrenimi artık daha erişilebilir! Ülkemizden uzak olsanız da, ‘Ülkem Yanımda’!">
+    <meta name="keywords"
+        content="türkçe eğitimi,  türk kültürü,  yurt dişindaki türkler,  çevrimiçi eğitim, anadil öğretimi, kültürel miras">
+    <meta name="author"
+        content="T.C. Yükseköğretim Ve Yurt Dişi Eğitim Genel Müdürlüğü Yurt Dışı Eğitim Daire Başkanlığı">
     <meta property="og:title" content="Çevrimiçi Türkçe Öğrenme Platformu">
     <meta property="og:url" content="https://ulkemyanimda.eba.gov.tr">
     <meta property="og:image" content="https://ulkemyanimda.eba.gov.tr/content/index_files/slayt.png">
@@ -36,61 +52,65 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
             padding: 1px;
         }
     </style>
-	
-	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
 
 <body class="" style="">
     <header>
-<div class="container-md header-container">
-    <div class="row pt-3 pt-md-4">
-        <div class="col-xxl-7 col-xl-6 col-lg-5 col-md-4 col-sm-3 col-xs-12 logo text-left">
-            <img src="./index_files/logo.svg" alt="logo">
-            <div class="logo-text d-none d-md-block"></div>
+        <div class="container-md header-container">
+            <div class="row pt-3 pt-md-4">
+                <div class="col-xxl-7 col-xl-6 col-lg-5 col-md-4 col-sm-3 col-xs-12 logo text-left">
+                    <img src="./index_files/logo.svg" alt="logo">
+                    <div class="logo-text d-none d-md-block"></div>
+                </div>
+
+                <div class="col login-buttons text-end">
+                    <!-- Giriş Butonu -->
+                    <a class="btn login d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#buttonsModal">
+                        Giriş
+                    </a>
+
+                    <!-- E-posta Butonu -->
+                    <a class="btn btn-outline-secondary d-none d-sm-inline-block ms-2"
+                        href="mailto:ulkemyanimda@meb.gov.tr">
+                        E-posta
+                    </a>
+
+                    <!-- TTKD Kitapları Butonu -->
+                    <a class="btn btn-outline-primary d-none d-sm-inline-block ms-2"
+                        href="https://ulkemyanimda.eba.gov.tr/kitap/" target="_blank">
+                        <i class="bi bi-book"></i> TTKD
+                    </a>
+
+                    <!-- Materyal Butonu -->
+                    <a class="btn btn-outline-primary d-none d-sm-inline-block ms-2"
+                        href="https://ulkemyanimda.github.io/" target="_blank">
+                        </i>Materyal
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Mobil Menü Butonu -->
+            <a class="menu-button d-block d-sm-none" data-bs-toggle="modal" data-bs-target="#buttonsModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+                    <path fill-rule="evenodd"
+                        d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                </svg>
+            </a>
         </div>
-
-<div class="col login-buttons text-end">
-    <!-- Giriş Butonu -->
-    <a class="btn login d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#buttonsModal">
-        Giriş
-    </a>
-    
-    <!-- E-posta Butonu -->
-    <a class="btn btn-outline-secondary d-none d-sm-inline-block ms-2" href="mailto:ulkemyanimda@meb.gov.tr">
-        E-posta
-    </a>
-
-    <!-- TTKD Kitapları Butonu -->
-    <a class="btn btn-outline-primary d-none d-sm-inline-block ms-2" href="https://ulkemyanimda.eba.gov.tr/kitap/" target="_blank">
-        <i class="bi bi-book"></i> TTKD
-    </a>
-	
-	<!-- Materyal Butonu -->
-    <a class="btn btn-outline-primary d-none d-sm-inline-block ms-2" href="https://ulkemyanimda.github.io/" target="_blank">
-        </i>Materyal
-    </a>
-</div>
-
-    </div>
-
-    <!-- Mobil Menü Butonu -->
-    <a class="menu-button d-block d-sm-none" data-bs-toggle="modal" data-bs-target="#buttonsModal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-            class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
-            <path fill-rule="evenodd"
-                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
-        </svg>
-    </a>
-</div>
 
     </header>
 
 
-    <div class="modal fade" id="buttonsModal" tabindex="-1" aria-labelledby="buttonsModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal fade" id="buttonsModal" tabindex="-1" aria-labelledby="buttonsModalLabel" aria-hidden="true"
+        style="display: none;">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body">
@@ -108,7 +128,8 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         </div>
     </div>
 
-    <div class="modal fade" id="discover-1-image" tabindex="-1" aria-labelledby="discover1ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="discover-1-image" tabindex="-1" aria-labelledby="discover1ModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -119,34 +140,40 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                     <img src="./index_files/haber1.jpg">
                 </div>
                 <div class="modal-footer">
-                    
-                    <button type="button" class="btn btn-meb-dark""> <a href="https://yyegm.meb.gov.tr/www/istiklal-marsini-guzel-okuma-yarismasi-finali-tamamlandi/icerik/1022" target="_blank" download="mebi-afis-dikey.pdf">Haberi Aç </a></button>
+
+                    <button type="button" class="btn btn-meb-dark""> <a href="
+                        https://yyegm.meb.gov.tr/www/istiklal-marsini-guzel-okuma-yarismasi-finali-tamamlandi/icerik/1022"
+                        target="_blank" download="mebi-afis-dikey.pdf">Haberi Aç </a></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="discover-2-image" tabindex="-1" aria-labelledby="discover2ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="discover-2-image" tabindex="-1" aria-labelledby="discover2ModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Haber 2</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-<div class="modal-body text-center">
-    <a href="https://ulkemyanimda.eba.gov.tr/kitap/" target="_blank">
-        <img src="./index_files/haber2.jpg" class="img-fluid" alt="Haber 2">
-    </a>
-</div>
+                <div class="modal-body text-center">
+                    <a href="https://ulkemyanimda.eba.gov.tr/kitap/" target="_blank">
+                        <img src="./index_files/haber2.jpg" class="img-fluid" alt="Haber 2">
+                    </a>
+                </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-meb-dark""> <a target="_blank" href="https://yyegm.meb.gov.tr/www/kulturel-kesif-yarismasi/icerik/1003" download="mebi-afis-yatay.pdf">Haberi Aç</a></button>
+                    <button type="button" class="btn btn-meb-dark""> <a target=" _blank"
+                        href="https://yyegm.meb.gov.tr/www/kulturel-kesif-yarismasi/icerik/1003"
+                        download="mebi-afis-yatay.pdf">Haberi Aç</a></button>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="modal fade" id="discover-3-image" tabindex="-1" aria-labelledby="discover3ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="discover-3-image" tabindex="-1" aria-labelledby="discover3ModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -154,16 +181,21 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe id="video-1" style="width:100%; max-width:765px; height:430px;" src="https://www.youtube.com/watch?v=nvTAqvESLwE" title="Ülkem Yanımda Tanıtım Videosu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                    <iframe id="video-1" style="width:100%; max-width:765px; height:430px;"
+                        src="https://www.youtube.com/watch?v=nvTAqvESLwE" title="Ülkem Yanımda Tanıtım Videosu"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
                 </div>
                 <div class="modal-footer">
-                                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 
-    <div class="modal fade" id="discover-4-image" tabindex="-1" aria-labelledby="discover4ModalLabel" aria-hidden="true">
+    <div class="modal fade" id="discover-4-image" tabindex="-1" aria-labelledby="discover4ModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -171,10 +203,14 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe id="video-2" style="width:100%; max-width:765px;height:430px;" src="https://www.youtube.com/watch?v=2coMuQQ9qaQ" title="Ülkem Yanımda Öğrenci Tanıtımları" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                    <iframe id="video-2" style="width:100%; max-width:765px;height:430px;"
+                        src="https://www.youtube.com/watch?v=2coMuQQ9qaQ" title="Ülkem Yanımda Öğrenci Tanıtımları"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
                 </div>
                 <div class="modal-footer">
-                                </div>
+                </div>
             </div>
 
         </div>
@@ -184,7 +220,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         <img src="./index_files/slayt.jpg" alt="slider" class="d-none d-md-block">
         <img src="./index_files/slayt_narrow.jpg" alt="slider" class="d-md-none">
     </section>
-<!--
+    <!--
     <section class="discover">
         <div class="container-md">
             <div class="row justify-content-center text-center">
@@ -270,38 +306,108 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     <!-- Başlangıç: Hareketli Galeri (scrolling gallery'den alındı) -->
     <section class="moving-gallery">
         <div class="container-md">
-           <h2 class="mg-title" style="color: #00B6BF; font-weight: bold;">Keşfet</h2>
+            <h2 class="mg-title" style="color: #00B6BF; font-weight: bold;">Keşfet</h2>
             <div class="gallery-container">
                 <div class="gallery-track" id="galleryTrack"></div>
             </div>
         </div>
 
         <style>
-            .moving-gallery { padding: 30px 0; }
-            .moving-gallery .mg-title { text-align: center; margin-bottom: 18px; font-size: 1.6rem; }
-            .moving-gallery .gallery-container { width: 100%; overflow: hidden; }
-            .moving-gallery .gallery-track { display: flex; gap: 20px; animation: mg-scroll 40s linear infinite; width: fit-content; }
-            .moving-gallery .gallery-item { flex-shrink: 0; width: 300px; height: 200px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.18); transition: transform .3s ease, box-shadow .3s ease; cursor: pointer; position: relative; }
-            .moving-gallery .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-            .moving-gallery .gallery-item:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 14px 42px rgba(0,0,0,0.28); }
-            .moving-gallery .gallery-item::after { content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%); opacity: 0; transition: opacity .25s ease; }
-            .moving-gallery .gallery-item:hover::after { opacity: 1; }
-            @keyframes mg-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-            .moving-gallery .gallery-track:hover { animation-play-state: paused; }
-            @media (max-width: 576px) { .moving-gallery .gallery-item { width: 220px; height: 140px; } }
+            .moving-gallery {
+                padding: 30px 0;
+            }
+
+            .moving-gallery .mg-title {
+                text-align: center;
+                margin-bottom: 18px;
+                font-size: 1.6rem;
+            }
+
+            .moving-gallery .gallery-container {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .moving-gallery .gallery-track {
+                display: flex;
+                gap: 20px;
+                animation: mg-scroll 40s linear infinite;
+                width: fit-content;
+            }
+
+            .moving-gallery .gallery-item {
+                flex-shrink: 0;
+                width: 300px;
+                height: 200px;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+                transition: transform .3s ease, box-shadow .3s ease;
+                cursor: pointer;
+                position: relative;
+            }
+
+            .moving-gallery .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .moving-gallery .gallery-item:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 14px 42px rgba(0, 0, 0, 0.28);
+            }
+
+            .moving-gallery .gallery-item::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.35) 100%);
+                opacity: 0;
+                transition: opacity .25s ease;
+            }
+
+            .moving-gallery .gallery-item:hover::after {
+                opacity: 1;
+            }
+
+            @keyframes mg-scroll {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .moving-gallery .gallery-track:hover {
+                animation-play-state: paused;
+            }
+
+            @media (max-width: 576px) {
+                .moving-gallery .gallery-item {
+                    width: 220px;
+                    height: 140px;
+                }
+            }
         </style>
 
         <script>
-            (function(){
+            (function () {
                 const galleryItems = [
                     { img: './index_files/discover-2.png', link: 'https://ulkemyanimda.eba.gov.tr/kitap/' },
                     { img: './index_files/discover-3.png', link: 'https://www.youtube.com/watch?v=_tyMDDiiZV0' },
                     { img: './index_files/discover-4.png', link: 'https://www.youtube.com/watch?v=2coMuQQ9qaQ' },
-                    { img: './index_files/discover-1.png', link: 'index_files/haber1.jpg'},
-                    { img: './index_files/discover-5.png', link: 'https://ulkemyanimda.github.io/posta/index.html'},
-                    { img: './index_files/discover-6.jpg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=360'},
-                    { img: './index_files/discover-7.jpeg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=359'},
-                    { img: './index_files/discover-8.jpg', link: 'https://www.youtube.com/watch?v=F4BrdSVBVoM'},
+                    { img: './index_files/discover-1.png', link: 'index_files/haber1.jpg' },
+                    { img: './index_files/discover-5.png', link: 'https://ulkemyanimda.github.io/posta/index.html' },
+                    { img: './index_files/discover-6.jpg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=360' },
+                    { img: './index_files/discover-7.jpeg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=359' },
+                    { img: './index_files/discover-8.jpg', link: 'https://www.youtube.com/watch?v=F4BrdSVBVoM' },
                     { img: './index_files/discover-9.jpg', link: 'https://www.youtube.com/watch?v=yrtpMH-Y_Ow' },
                     { img: './index_files/discover-10.jpg', link: 'https://www.youtube.com/watch?v=nvTAqvESLwE' }
                 ];
@@ -338,7 +444,13 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                             <img src="./index_files/image-1.svg" alt="Ülkem Yanımda'yı Kimler Kullanabilir?">
                         </div>
                         <div class="about-text">
-                  Ülkem Yanımda, yurt dışında yaşayan 5-16 yaş arası Türk soylu çocuklara Türkçe ve Türk kültürünü öğretmeyi amaçlayan yenilikçi bir dijital eğitim platformudur. Platform, çevrim içi dersler ile öğrencilere aktif bir öğrenme ortamı sunmaktadır. Uzman öğretmenler eşliğinde gerçekleştirilen derslerde öğrenciler, Türkçe dil becerilerini geliştirirken aynı zamanda kültürel mirasımızla da yakından tanışma fırsatı bulmaktadır. Üstelik platforma kaydolmak tamamen ücretsizdir ve herkes sisteme üye olarak bu derslerden faydalanabilir.		</div>
+                            Ülkem Yanımda, yurt dışında yaşayan 5-16 yaş arası Türk soylu çocuklara Türkçe ve Türk
+                            kültürünü öğretmeyi amaçlayan yenilikçi bir dijital eğitim platformudur. Platform, çevrim
+                            içi dersler ile öğrencilere aktif bir öğrenme ortamı sunmaktadır. Uzman öğretmenler
+                            eşliğinde gerçekleştirilen derslerde öğrenciler, Türkçe dil becerilerini geliştirirken aynı
+                            zamanda kültürel mirasımızla da yakından tanışma fırsatı bulmaktadır. Üstelik platforma
+                            kaydolmak tamamen ücretsizdir ve herkes sisteme üye olarak bu derslerden faydalanabilir.
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-9 col-md-9 col-lg-6">
@@ -348,7 +460,12 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                             <img src="./index_files/image-2.svg" alt="Ülkem Yanımda'da Neler Var?">
                         </div>
                         <div class="about-text">
-                           Ülkem Yanımda, yalnızca canlı derslerle değil, çeşitli dijital eğitim materyalleriyle de zengin bir öğrenme deneyimi sunmaktadır. Platformda, ders kitapları, sesli kitaplar, eğitici videolar, müzikler, interaktif oyunlar gibi pek çok içerik yer almaktadır. Bunun yanı sıra öğrencilerin motivasyonlarını artırmak ve onları teşvik etmek amacıyla yıl içerisinde ödüllü yarışmalar düzenlenmektedir. Bu sayede öğrenciler hem eğlenerek öğrenme fırsatı bulmakta hem de kültürel ve akademik gelişimlerini destekleyici etkinliklere katılabilmektedir.                 </div>
+                            Ülkem Yanımda, yalnızca canlı derslerle değil, çeşitli dijital eğitim materyalleriyle de
+                            zengin bir öğrenme deneyimi sunmaktadır. Platformda, ders kitapları, sesli kitaplar, eğitici
+                            videolar, müzikler, interaktif oyunlar gibi pek çok içerik yer almaktadır. Bunun yanı sıra
+                            öğrencilerin motivasyonlarını artırmak ve onları teşvik etmek amacıyla yıl içerisinde ödüllü
+                            yarışmalar düzenlenmektedir. Bu sayede öğrenciler hem eğlenerek öğrenme fırsatı bulmakta hem
+                            de kültürel ve akademik gelişimlerini destekleyici etkinliklere katılabilmektedir. </div>
                     </div>
                 </div>
             </div>
@@ -371,14 +488,14 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                             <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-02.svg">
                                 <div class="feature-text" style="left: 40%;">
-                                     <span>Seviye Belirleme Sınavları</span>
+                                    <span>Seviye Belirleme Sınavları</span>
                                 </div>
                             </div>
                             <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-12.svg">
                                 <div class="feature-text" style="left: 43%;">
-								<span>Seviye ve Yaşa Uygun Sınıflar</span>
-                                   
+                                    <span>Seviye ve Yaşa Uygun Sınıflar</span>
+
                                 </div>
                             </div>
                             <div class="relative col-6 col-md-3 mb-3 px-2">
@@ -411,38 +528,38 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                                     <span>Etkileşimli Videolar</span>
                                 </div>
                             </div>
-							
+
                             <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-09.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Kültürel Etkinlikler</span>
                                 </div>
                             </div>
-							
-							                            <div class="relative col-6 col-md-3 mb-3 px-2">
+
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-15.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Yarışmalar</span>
                                 </div>
                             </div>
-							
-							<div class="relative col-6 col-md-3 mb-3 px-2">
+
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-7.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Konuşma Pratiği</span>
                                 </div>
                             </div>
-							
-							
-								<div class="relative col-6 col-md-3 mb-3 px-2">
+
+
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-20.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Değerlendirme ve Geri Bildirim</span>
                                 </div>
                             </div>
-							
-						
-                          
+
+
+
                         </div>
                     </div>
                 </div>
@@ -461,10 +578,11 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                         <div class="relative col-6Çevrim İçi Canlı Dersler col-md-4 mb-3 px-2">
                             <img src="./index_files/module-1.svg">
                             <div class="module-title-text">
-                                <span>Çevrim İçi  Dersler</span>
+                                <span>Çevrim İçi Dersler</span>
                             </div>
                             <div class="module-content-text">
-                                <span> Öğrencilerin öğretmenleriyle gerçek zamanlı olarak buluşup Türkçe ve Türk kültürü üzerine interaktif dersler işleyebileceği sanal sınıf ortamı.</span>
+                                <span> Öğrencilerin öğretmenleriyle gerçek zamanlı olarak buluşup Türkçe ve Türk kültürü
+                                    üzerine interaktif dersler işleyebileceği sanal sınıf ortamı.</span>
                             </div>
                         </div>
                         <div class="relative col-6 col-md-4 mb-3 px-2">
@@ -473,7 +591,8 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                                 <span>Dijital Eğitim <br> İçerikleri</span>
                             </div>
                             <div class="module-content-text">
-                                <span>Türkçe dil becerileri ve kültürel unsurları destekleyen videolar, etkileşimli kitaplar ve oyunlarla zenginleştirilmiş öğrenme materyalleri.</span>
+                                <span>Türkçe dil becerileri ve kültürel unsurları destekleyen videolar, etkileşimli
+                                    kitaplar ve oyunlarla zenginleştirilmiş öğrenme materyalleri.</span>
                             </div>
                         </div>
                         <div class="relative col-6 col-md-4 mb-3 px-2">
@@ -482,7 +601,8 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                                 <span>Kültür ve Gelenek Atölyesi</span>
                             </div>
                             <div class="module-content-text">
-                                <span>Bayramlar, halk oyunları, yemek kültürü gibi başlıklarda öğrencilerin aktif katılım sağlayabileceği eğlenceli ve öğretici etkinlik modülü.</span>
+                                <span>Bayramlar, halk oyunları, yemek kültürü gibi başlıklarda öğrencilerin aktif
+                                    katılım sağlayabileceği eğlenceli ve öğretici etkinlik modülü.</span>
                             </div>
                         </div>
 
@@ -550,15 +670,18 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                     <div class="title">Giriş Yapın</div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
                         <div><img src="./index_files/user.png" style="max-width:32px"></div>
-                        <div class="ms-2 footer-item"><a href="https://ulkemyanimda.eba.gov.tr/moodle/login/index.php">Giriş</a></div>
+                        <div class="ms-2 footer-item"><a
+                                href="https://ulkemyanimda.eba.gov.tr/moodle/login/index.php">Giriş</a></div>
                     </div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
                         <div><img src="./index_files/user.png" style="max-width:32px"></div>
-                        <div class="ms-2 footer-item"><a href="https://ulkemyanimda.eba.gov.tr/moodle/login/signup.php">Üye Kaydı</a></div>
+                        <div class="ms-2 footer-item"><a
+                                href="https://ulkemyanimda.eba.gov.tr/moodle/login/signup.php">Üye Kaydı</a></div>
                     </div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
                         <div><img src="./index_files/user.png" style="max-width:32px"></div>
-                        <div class="ms-2 footer-item"><a href="https://ulkemyanimda.eba.gov.tr/moodle/">Misafir Girişi</a></div>
+                        <div class="ms-2 footer-item"><a href="https://ulkemyanimda.eba.gov.tr/moodle/">Misafir
+                                Girişi</a></div>
                     </div>
                 </div>
 
@@ -570,7 +693,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                     </div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
                         <div><img src="./index_files/phone.png" style="max-width:32px"></div>
-                        <div class="ms-2 footer-item">	0 312 413 56 46</div>
+                        <div class="ms-2 footer-item"> 0 312 413 56 46</div>
                     </div>
 
                 </div>
@@ -583,21 +706,27 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                     </div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
                         <div><img src="./index_files/instagram.svg" style="max-width:32px"></div>
-                        <div class="ms-2 footer-item"><a href="https://www.instagram.com/ulkemyanimda" target="_blank">Instagram</a></div>
+                        <div class="ms-2 footer-item"><a href="https://www.instagram.com/ulkemyanimda"
+                                target="_blank">Instagram</a></div>
                     </div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
                         <div><img src="./index_files/youtube.svg" style="max-width:32px"></div>
-                        <div class="ms-2 footer-item"><a href="https://www.youtube.com/@ulkem_yanimda" target="_blank">Youtube</a></div>
+                        <div class="ms-2 footer-item"><a href="https://www.youtube.com/@ulkem_yanimda"
+                                target="_blank">Youtube</a></div>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-3 justify-content-xs-center">
                     <div class="title">Mobil Uygulama</div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
-                        <a href="https://play.google.com/store/apps/details?id=com.moodle.moodlemobile" target="_blank"><img src="./index_files/playstore.png" style="max-height: 40px" class="img-fluid" alt="Google Play Store&#39;dan indir"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.moodle.moodlemobile"
+                            target="_blank"><img src="./index_files/playstore.png" style="max-height: 40px"
+                                class="img-fluid" alt="Google Play Store&#39;dan indir"></a>
                     </div>
                     <div class="d-flex justify-content-xs-center justify-content-sm-left mb-3">
-                        <a href="https://apps.apple.com/us/app/moodle/id633359593" target="_blank"><img src="./index_files/appstore.png" style="max-height: 40px" class="img-fluid" alt="AppStore&#39;dan indir"></a>
+                        <a href="https://apps.apple.com/us/app/moodle/id633359593" target="_blank"><img
+                                src="./index_files/appstore.png" style="max-height: 40px" class="img-fluid"
+                                alt="AppStore&#39;dan indir"></a>
                     </div>
 
                 </div>
@@ -617,9 +746,9 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 
     <script>
         var videoModal1 = document.getElementById('discover-3-image')
-          
+
         videoModal1.addEventListener('show.bs.modal', function (event) {
-            
+
             $('#video-1').attr('src', 'https://www.youtube.com/embed/_tyMDDiiZV0');
         })
 
@@ -645,44 +774,1037 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 
 
 
-<veepn-lock-screen><template shadowrootmode="open"><style>html{box-sizing:border-box;text-size-adjust:100%;word-break:normal;-moz-tab-size:4;tab-size:4}*,:before,:after{background-repeat:no-repeat;box-sizing:border-box}:before,:after{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0}hr{overflow:visible;height:0;color:inherit;border:0;border-top:1px solid}details,main{display:block}summary{display:list-item}small{font-size:80%}[hidden]{display:none!important}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}a{background-color:transparent}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace}pre{font-size:1em}b,strong{font-weight:bolder}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}iframe{border-style:none}input{border-radius:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;-moz-appearance:textfield;appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none;-moz-appearance:none;appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit;color:inherit}optgroup{font-weight:700}button{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit],[role=button]{cursor:pointer}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button;-moz-appearance:button;appearance:button}button,input,select,textarea{background-color:transparent;border-style:none}button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{outline:1px dotted ButtonText}select{-webkit-appearance:none;-moz-appearance:none;appearance:none}a:focus,button:focus,input:focus,select:focus,textarea:focus{outline-width:0}select::-ms-expand{display:none}select::-ms-value{color:currentcolor}legend{border:0;color:inherit;display:table;white-space:normal;max-width:100%}::-webkit-file-upload-button{-webkit-appearance:button;-moz-appearance:button;appearance:button;color:inherit;font:inherit}[disabled]{cursor:default}img{border-style:none}progress{vertical-align:baseline}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true]{cursor:default}ul,ol{list-style-type:none}figure{margin:0}.lock-screen{font-family:FigtreeVF,sans-serif;letter-spacing:normal;position:fixed;z-index:2147483638;top:0;right:0;bottom:0;left:0;padding:32px 40px;color:#222e3a;background-color:#fdfdfd;display:flex;flex-direction:column;row-gap:12px;overflow:auto;background-image:radial-gradient(circle at 0% 0%,#e6fffdcc,#e6fffd00 50%),radial-gradient(circle at 100% 0%,#ebfffecc,#ebfffe00 50%),radial-gradient(circle at 100% 100%,#f0f5ffcc,#f0f5ff00 50%),radial-gradient(circle at 0% 100%,#f2f2ffcc,#f2f2ff00 50%),radial-gradient(circle at 50% 50%,#fff,#fffc,#f5f5ff66,#f0f0ff33,#f0f0ff00),linear-gradient(to bottom right,#e6fffd,#f2f2ff);background-size:100% 100%;background-repeat:no-repeat}.lock-screen__header{display:flex;align-items:center;justify-content:space-between}.lock-screen__logo{display:inline-flex;align-items:center;column-gap:12px;font-size:18px;font-weight:600}.lock-screen__close{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background-color:#222e3a1a}.lock-screen__main{flex-grow:1;align-content:center}.lock-screen__container{max-width:1120px;margin-inline:auto;display:flex;align-items:center;gap:24px}@media (width < 972px){.lock-screen__container{flex-direction:column}}.lock-screen__timer{display:flex;align-items:center;justify-content:center;width:100%}.lock-screen__content{width:100%}.lock-screen__title{font-size:48px;font-weight:700;line-height:56px;margin-bottom:16px}.lock-screen__description{font-size:18px;line-height:32px;margin-bottom:24px}.lock-screen__actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.lock-screen__action{height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;text-align:center;padding:8px 24px}.upgrade-btn{color:#fff;background:linear-gradient(180deg,#20df9e,#13cf8f)}.skip-btn{color:#3066ff;border-width:1px;border-style:solid;border-color:#3066ff;position:relative}.skip-btn__tooltip{font-size:14px;line-height:24px;font-weight:400;position:absolute;z-index:1;left:50%;top:calc(100% + 18px);padding:8px 12px;color:#fff;border:1px solid #4a5764;background-color:#222e3a;border-radius:8px;width:max-content;pointer-events:none;animation:slide-in .6s ease-in-out forwards}@keyframes slide-in{0%{opacity:0;transform:translate(-50%,-100%)}to{opacity:1;transform:translate(-50%)}}.skip-btn__tooltip:after{content:"";display:block;position:absolute;z-index:1;top:-8px;left:50%;width:0;height:0;border-style:solid;border-width:0 8px 8px;border-color:transparent transparent #222e3a;transform:translate(-6px)}.skip-btn__icon{display:none}.skip-btn:disabled{cursor:not-allowed}.skip-btn:disabled .skip-btn__tooltip,.skip-btn:disabled .skip-btn__text{display:none}.skip-btn:disabled .skip-btn__icon{display:initial;animation:tick-tock .8s steps(8,end) infinite}@keyframes tick-tock{to{transform:rotate(360deg)}}.timer{position:relative;max-width:422px;width:100%;aspect-ratio:1/1;border-radius:50%;background-color:#fff;box-shadow:0 0 40px #2b374114;display:flex;align-items:center;justify-content:center;pointer-events:none;-webkit-user-select:none;user-select:none}.timer__circle-backward{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;max-width:100%;height:auto;opacity:.4}.timer__circle-forward{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);z-index:1;max-width:100%;height:auto;animation:sector 5s linear forwards}.timer__fire-icon{position:absolute;top:22%;left:50%;transform:translate(-50%);z-index:2}.timer__text{font-size:clamp(18px,10vw,88px);letter-spacing:-1px;text-align:center;font-variant-numeric:tabular-nums;position:relative;z-index:3}.timer--finished .timer__text{color:#98a0a9}.timer--finished .timer__circle-forward{display:none}@keyframes sector{0%{clip-path:polygon(50% 50%,0% 2%,100% 0%,100% 100%,0% 100%,0% 2%)}25%{clip-path:polygon(50% 50%,0% 2%,100% 0%,100% 100%,0% 100%,0% 100%)}25.000001%{clip-path:polygon(50% 50%,0% 2%,100% 0%,100% 100%,0% 100%)}50%{clip-path:polygon(50% 50%,0% 2%,100% 0%,100% 100%,100% 100%)}50.000001%{clip-path:polygon(50% 50%,0% 2%,100% 0%,100% 100%)}75%{clip-path:polygon(50% 50%,0% 2%,100% 0%,100% 0%)}75.000001%{clip-path:polygon(50% 50%,0% 2%,100% 0%)}to{clip-path:polygon(50% 50%,0% 2%,0% 0%)}}@media (prefers-color-scheme: dark){.lock-screen{color:#fff;background-image:radial-gradient(circle at 0% 0%,#2f4f4fcc,#2f4f4f00 50%),radial-gradient(circle at 100% 0%,#193042cc,#19304200 50%),radial-gradient(circle at 100% 100%,#1c3041cc,#1c304100 50%),radial-gradient(circle at 0% 100%,#1b263bcc,#1b263b00 50%),radial-gradient(circle at 50% 50%,#141e28,#141e28cc,#1b263b66,#1c304133,#1c304100),linear-gradient(to bottom right,#2f4f4f,#1b263b)}.lock-screen__close{background-color:#ffffff1a}.skip-btn{color:#fff;border-color:#fff}.skip-btn__tooltip{color:#222e3a;border:1px solid #f5f6f7;background-color:#fff}.skip-btn__tooltip:after{border-color:transparent transparent #fff}.timer{background-color:#191b25}.timer__circle-backward{opacity:1}.timer--finished .timer__text{color:#5c6977}}</style></template><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></veepn-lock-screen><veepn-guard-alert><template shadowrootmode="open"><style>html{box-sizing:border-box;text-size-adjust:100%;word-break:normal;-moz-tab-size:4;tab-size:4}*,:before,:after{background-repeat:no-repeat;box-sizing:border-box}:before,:after{text-decoration:inherit;vertical-align:inherit}*{padding:0;margin:0}hr{overflow:visible;height:0;color:inherit;border:0;border-top:1px solid}details,main{display:block}summary{display:list-item}small{font-size:80%}[hidden]{display:none}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}a{background-color:transparent}a:active,a:hover{outline-width:0}code,kbd,pre,samp{font-family:monospace}pre{font-size:1em}b,strong{font-weight:bolder}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:inherit;text-indent:0}iframe{border-style:none}input{border-radius:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;-moz-appearance:textfield;appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none;-moz-appearance:none;appearance:none}textarea{overflow:auto;resize:vertical}button,input,optgroup,select,textarea{font:inherit;color:inherit}optgroup{font-weight:700}button{overflow:visible}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit],[role=button]{cursor:pointer}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button;-moz-appearance:button;appearance:button}button,input,select,textarea{background-color:transparent;border-style:none}button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{outline:1px dotted ButtonText}select{-webkit-appearance:none;-moz-appearance:none;appearance:none}a:focus,button:focus,input:focus,select:focus,textarea:focus{outline-width:0}select::-ms-expand{display:none}select::-ms-value{color:currentcolor}legend{border:0;color:inherit;display:table;white-space:normal;max-width:100%}::-webkit-file-upload-button{-webkit-appearance:button;-moz-appearance:button;appearance:button;color:inherit;font:inherit}[disabled]{cursor:default}img{border-style:none}progress{vertical-align:baseline}[aria-busy=true]{cursor:progress}[aria-controls]{cursor:pointer}[aria-disabled=true]{cursor:default}ul,ol{list-style-type:none}figure{margin:0}.guard-popup{font-family:FigtreeVF,sans-serif;position:fixed;z-index:2147483638;top:8px;left:24px;overflow:visible;color:#222e3a;background-color:#fff;max-width:416px;width:calc(100% - 48px);border-radius:16px;box-shadow:0 4px 20px #00000040;padding:24px}.guard-popup__header{display:flex;justify-content:space-between;align-items:center;column-gap:16px;margin-bottom:24px}.guard-popup__close{display:flex;align-items:center;justify-content:center;width:24px;height:24px;opacity:.7}.guard-popup__img{line-height:0;margin-bottom:24px}.guard-popup__img img{width:100%;aspect-ratio:368/142;object-fit:cover;border-radius:12px;overflow:hidden}.guard-popup__title{font-size:24px;line-height:32px;margin-bottom:8px}.guard-popup__description{font-size:20px;line-height:28px;font-weight:500;color:#4a5764;margin-bottom:28px}.guard-popup__actions{display:flex;justify-content:flex-end;column-gap:16px}.guard-popup__btn{display:flex;align-items:center;justify-content:center;padding:8px 16px;border-radius:5px;font-size:16px;line-height:24px;font-weight:700;cursor:pointer;color:#fff;background:linear-gradient(180deg,#5695fd,#1554ff)}</style></template><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></veepn-guard-alert></body></html>
+    <veepn-lock-screen><template shadowrootmode="open">
+            <style>
+                html {
+                    box-sizing: border-box;
+                    text-size-adjust: 100%;
+                    word-break: normal;
+                    -moz-tab-size: 4;
+                    tab-size: 4
+                }
+
+                *,
+                :before,
+                :after {
+                    background-repeat: no-repeat;
+                    box-sizing: border-box
+                }
+
+                :before,
+                :after {
+                    text-decoration: inherit;
+                    vertical-align: inherit
+                }
+
+                * {
+                    padding: 0;
+                    margin: 0
+                }
+
+                hr {
+                    overflow: visible;
+                    height: 0;
+                    color: inherit;
+                    border: 0;
+                    border-top: 1px solid
+                }
+
+                details,
+                main {
+                    display: block
+                }
+
+                summary {
+                    display: list-item
+                }
+
+                small {
+                    font-size: 80%
+                }
+
+                [hidden] {
+                    display: none !important
+                }
+
+                abbr[title] {
+                    border-bottom: none;
+                    text-decoration: underline;
+                    text-decoration: underline dotted
+                }
+
+                a {
+                    background-color: transparent
+                }
+
+                a:active,
+                a:hover {
+                    outline-width: 0
+                }
+
+                code,
+                kbd,
+                pre,
+                samp {
+                    font-family: monospace
+                }
+
+                pre {
+                    font-size: 1em
+                }
+
+                b,
+                strong {
+                    font-weight: bolder
+                }
+
+                sub,
+                sup {
+                    font-size: 75%;
+                    line-height: 0;
+                    position: relative;
+                    vertical-align: baseline
+                }
+
+                sub {
+                    bottom: -.25em
+                }
+
+                sup {
+                    top: -.5em
+                }
+
+                table {
+                    border-color: inherit;
+                    text-indent: 0
+                }
+
+                iframe {
+                    border-style: none
+                }
+
+                input {
+                    border-radius: 0
+                }
+
+                [type=number]::-webkit-inner-spin-button,
+                [type=number]::-webkit-outer-spin-button {
+                    height: auto
+                }
+
+                [type=search] {
+                    -webkit-appearance: textfield;
+                    -moz-appearance: textfield;
+                    appearance: textfield;
+                    outline-offset: -2px
+                }
+
+                [type=search]::-webkit-search-decoration {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none
+                }
+
+                textarea {
+                    overflow: auto;
+                    resize: vertical
+                }
+
+                button,
+                input,
+                optgroup,
+                select,
+                textarea {
+                    font: inherit;
+                    color: inherit
+                }
+
+                optgroup {
+                    font-weight: 700
+                }
+
+                button {
+                    overflow: visible
+                }
+
+                button,
+                select {
+                    text-transform: none
+                }
+
+                button,
+                [type=button],
+                [type=reset],
+                [type=submit],
+                [role=button] {
+                    cursor: pointer
+                }
+
+                button::-moz-focus-inner,
+                [type=button]::-moz-focus-inner,
+                [type=reset]::-moz-focus-inner,
+                [type=submit]::-moz-focus-inner {
+                    border-style: none;
+                    padding: 0
+                }
+
+                button,
+                html [type=button],
+                [type=reset],
+                [type=submit] {
+                    -webkit-appearance: button;
+                    -moz-appearance: button;
+                    appearance: button
+                }
+
+                button,
+                input,
+                select,
+                textarea {
+                    background-color: transparent;
+                    border-style: none
+                }
+
+                button:-moz-focusring,
+                [type=button]::-moz-focus-inner,
+                [type=reset]::-moz-focus-inner,
+                [type=submit]::-moz-focus-inner {
+                    outline: 1px dotted ButtonText
+                }
+
+                select {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none
+                }
+
+                a:focus,
+                button:focus,
+                input:focus,
+                select:focus,
+                textarea:focus {
+                    outline-width: 0
+                }
+
+                select::-ms-expand {
+                    display: none
+                }
+
+                select::-ms-value {
+                    color: currentcolor
+                }
+
+                legend {
+                    border: 0;
+                    color: inherit;
+                    display: table;
+                    white-space: normal;
+                    max-width: 100%
+                }
+
+                ::-webkit-file-upload-button {
+                    -webkit-appearance: button;
+                    -moz-appearance: button;
+                    appearance: button;
+                    color: inherit;
+                    font: inherit
+                }
+
+                [disabled] {
+                    cursor: default
+                }
+
+                img {
+                    border-style: none
+                }
+
+                progress {
+                    vertical-align: baseline
+                }
+
+                [aria-busy=true] {
+                    cursor: progress
+                }
+
+                [aria-controls] {
+                    cursor: pointer
+                }
+
+                [aria-disabled=true] {
+                    cursor: default
+                }
+
+                ul,
+                ol {
+                    list-style-type: none
+                }
+
+                figure {
+                    margin: 0
+                }
+
+                .lock-screen {
+                    font-family: FigtreeVF, sans-serif;
+                    letter-spacing: normal;
+                    position: fixed;
+                    z-index: 2147483638;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    padding: 32px 40px;
+                    color: #222e3a;
+                    background-color: #fdfdfd;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 12px;
+                    overflow: auto;
+                    background-image: radial-gradient(circle at 0% 0%, #e6fffdcc, #e6fffd00 50%), radial-gradient(circle at 100% 0%, #ebfffecc, #ebfffe00 50%), radial-gradient(circle at 100% 100%, #f0f5ffcc, #f0f5ff00 50%), radial-gradient(circle at 0% 100%, #f2f2ffcc, #f2f2ff00 50%), radial-gradient(circle at 50% 50%, #fff, #fffc, #f5f5ff66, #f0f0ff33, #f0f0ff00), linear-gradient(to bottom right, #e6fffd, #f2f2ff);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat
+                }
+
+                .lock-screen__header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between
+                }
+
+                .lock-screen__logo {
+                    display: inline-flex;
+                    align-items: center;
+                    column-gap: 12px;
+                    font-size: 18px;
+                    font-weight: 600
+                }
+
+                .lock-screen__close {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background-color: #222e3a1a
+                }
+
+                .lock-screen__main {
+                    flex-grow: 1;
+                    align-content: center
+                }
+
+                .lock-screen__container {
+                    max-width: 1120px;
+                    margin-inline: auto;
+                    display: flex;
+                    align-items: center;
+                    gap: 24px
+                }
+
+                @media (width < 972px) {
+                    .lock-screen__container {
+                        flex-direction: column
+                    }
+                }
+
+                .lock-screen__timer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%
+                }
+
+                .lock-screen__content {
+                    width: 100%
+                }
+
+                .lock-screen__title {
+                    font-size: 48px;
+                    font-weight: 700;
+                    line-height: 56px;
+                    margin-bottom: 16px
+                }
+
+                .lock-screen__description {
+                    font-size: 18px;
+                    line-height: 32px;
+                    margin-bottom: 24px
+                }
+
+                .lock-screen__actions {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                    gap: 16px
+                }
+
+                .lock-screen__action {
+                    height: 48px;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-align: center;
+                    padding: 8px 24px
+                }
+
+                .upgrade-btn {
+                    color: #fff;
+                    background: linear-gradient(180deg, #20df9e, #13cf8f)
+                }
+
+                .skip-btn {
+                    color: #3066ff;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: #3066ff;
+                    position: relative
+                }
+
+                .skip-btn__tooltip {
+                    font-size: 14px;
+                    line-height: 24px;
+                    font-weight: 400;
+                    position: absolute;
+                    z-index: 1;
+                    left: 50%;
+                    top: calc(100% + 18px);
+                    padding: 8px 12px;
+                    color: #fff;
+                    border: 1px solid #4a5764;
+                    background-color: #222e3a;
+                    border-radius: 8px;
+                    width: max-content;
+                    pointer-events: none;
+                    animation: slide-in .6s ease-in-out forwards
+                }
+
+                @keyframes slide-in {
+                    0% {
+                        opacity: 0;
+                        transform: translate(-50%, -100%)
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translate(-50%)
+                    }
+                }
+
+                .skip-btn__tooltip:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    z-index: 1;
+                    top: -8px;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 8px 8px;
+                    border-color: transparent transparent #222e3a;
+                    transform: translate(-6px)
+                }
+
+                .skip-btn__icon {
+                    display: none
+                }
+
+                .skip-btn:disabled {
+                    cursor: not-allowed
+                }
+
+                .skip-btn:disabled .skip-btn__tooltip,
+                .skip-btn:disabled .skip-btn__text {
+                    display: none
+                }
+
+                .skip-btn:disabled .skip-btn__icon {
+                    display: initial;
+                    animation: tick-tock .8s steps(8, end) infinite
+                }
+
+                @keyframes tick-tock {
+                    to {
+                        transform: rotate(360deg)
+                    }
+                }
+
+                .timer {
+                    position: relative;
+                    max-width: 422px;
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    box-shadow: 0 0 40px #2b374114;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    pointer-events: none;
+                    -webkit-user-select: none;
+                    user-select: none
+                }
+
+                .timer__circle-backward {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 0;
+                    max-width: 100%;
+                    height: auto;
+                    opacity: .4
+                }
+
+                .timer__circle-forward {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                    z-index: 1;
+                    max-width: 100%;
+                    height: auto;
+                    animation: sector 5s linear forwards
+                }
+
+                .timer__fire-icon {
+                    position: absolute;
+                    top: 22%;
+                    left: 50%;
+                    transform: translate(-50%);
+                    z-index: 2
+                }
+
+                .timer__text {
+                    font-size: clamp(18px, 10vw, 88px);
+                    letter-spacing: -1px;
+                    text-align: center;
+                    font-variant-numeric: tabular-nums;
+                    position: relative;
+                    z-index: 3
+                }
+
+                .timer--finished .timer__text {
+                    color: #98a0a9
+                }
+
+                .timer--finished .timer__circle-forward {
+                    display: none
+                }
+
+                @keyframes sector {
+                    0% {
+                        clip-path: polygon(50% 50%, 0% 2%, 100% 0%, 100% 100%, 0% 100%, 0% 2%)
+                    }
+
+                    25% {
+                        clip-path: polygon(50% 50%, 0% 2%, 100% 0%, 100% 100%, 0% 100%, 0% 100%)
+                    }
+
+                    25.000001% {
+                        clip-path: polygon(50% 50%, 0% 2%, 100% 0%, 100% 100%, 0% 100%)
+                    }
+
+                    50% {
+                        clip-path: polygon(50% 50%, 0% 2%, 100% 0%, 100% 100%, 100% 100%)
+                    }
+
+                    50.000001% {
+                        clip-path: polygon(50% 50%, 0% 2%, 100% 0%, 100% 100%)
+                    }
+
+                    75% {
+                        clip-path: polygon(50% 50%, 0% 2%, 100% 0%, 100% 0%)
+                    }
+
+                    75.000001% {
+                        clip-path: polygon(50% 50%, 0% 2%, 100% 0%)
+                    }
+
+                    to {
+                        clip-path: polygon(50% 50%, 0% 2%, 0% 0%)
+                    }
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    .lock-screen {
+                        color: #fff;
+                        background-image: radial-gradient(circle at 0% 0%, #2f4f4fcc, #2f4f4f00 50%), radial-gradient(circle at 100% 0%, #193042cc, #19304200 50%), radial-gradient(circle at 100% 100%, #1c3041cc, #1c304100 50%), radial-gradient(circle at 0% 100%, #1b263bcc, #1b263b00 50%), radial-gradient(circle at 50% 50%, #141e28, #141e28cc, #1b263b66, #1c304133, #1c304100), linear-gradient(to bottom right, #2f4f4f, #1b263b)
+                    }
+
+                    .lock-screen__close {
+                        background-color: #ffffff1a
+                    }
+
+                    .skip-btn {
+                        color: #fff;
+                        border-color: #fff
+                    }
+
+                    .skip-btn__tooltip {
+                        color: #222e3a;
+                        border: 1px solid #f5f6f7;
+                        background-color: #fff
+                    }
+
+                    .skip-btn__tooltip:after {
+                        border-color: transparent transparent #fff
+                    }
+
+                    .timer {
+                        background-color: #191b25
+                    }
+
+                    .timer__circle-backward {
+                        opacity: 1
+                    }
+
+                    .timer--finished .timer__text {
+                        color: #5c6977
+                    }
+                }
+            </style>
+        </template>
+        <style>
+            @font-face {
+                font-family: FigtreeVF;
+                src: url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"), url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");
+                font-weight: 100 1000;
+                font-display: swap
+            }
+        </style>
+    </veepn-lock-screen><veepn-guard-alert><template shadowrootmode="open">
+            <style>
+                html {
+                    box-sizing: border-box;
+                    text-size-adjust: 100%;
+                    word-break: normal;
+                    -moz-tab-size: 4;
+                    tab-size: 4
+                }
+
+                *,
+                :before,
+                :after {
+                    background-repeat: no-repeat;
+                    box-sizing: border-box
+                }
+
+                :before,
+                :after {
+                    text-decoration: inherit;
+                    vertical-align: inherit
+                }
+
+                * {
+                    padding: 0;
+                    margin: 0
+                }
+
+                hr {
+                    overflow: visible;
+                    height: 0;
+                    color: inherit;
+                    border: 0;
+                    border-top: 1px solid
+                }
+
+                details,
+                main {
+                    display: block
+                }
+
+                summary {
+                    display: list-item
+                }
+
+                small {
+                    font-size: 80%
+                }
+
+                [hidden] {
+                    display: none
+                }
+
+                abbr[title] {
+                    border-bottom: none;
+                    text-decoration: underline;
+                    text-decoration: underline dotted
+                }
+
+                a {
+                    background-color: transparent
+                }
+
+                a:active,
+                a:hover {
+                    outline-width: 0
+                }
+
+                code,
+                kbd,
+                pre,
+                samp {
+                    font-family: monospace
+                }
+
+                pre {
+                    font-size: 1em
+                }
+
+                b,
+                strong {
+                    font-weight: bolder
+                }
+
+                sub,
+                sup {
+                    font-size: 75%;
+                    line-height: 0;
+                    position: relative;
+                    vertical-align: baseline
+                }
+
+                sub {
+                    bottom: -.25em
+                }
+
+                sup {
+                    top: -.5em
+                }
+
+                table {
+                    border-color: inherit;
+                    text-indent: 0
+                }
+
+                iframe {
+                    border-style: none
+                }
+
+                input {
+                    border-radius: 0
+                }
+
+                [type=number]::-webkit-inner-spin-button,
+                [type=number]::-webkit-outer-spin-button {
+                    height: auto
+                }
+
+                [type=search] {
+                    -webkit-appearance: textfield;
+                    -moz-appearance: textfield;
+                    appearance: textfield;
+                    outline-offset: -2px
+                }
+
+                [type=search]::-webkit-search-decoration {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none
+                }
+
+                textarea {
+                    overflow: auto;
+                    resize: vertical
+                }
+
+                button,
+                input,
+                optgroup,
+                select,
+                textarea {
+                    font: inherit;
+                    color: inherit
+                }
+
+                optgroup {
+                    font-weight: 700
+                }
+
+                button {
+                    overflow: visible
+                }
+
+                button,
+                select {
+                    text-transform: none
+                }
+
+                button,
+                [type=button],
+                [type=reset],
+                [type=submit],
+                [role=button] {
+                    cursor: pointer
+                }
+
+                button::-moz-focus-inner,
+                [type=button]::-moz-focus-inner,
+                [type=reset]::-moz-focus-inner,
+                [type=submit]::-moz-focus-inner {
+                    border-style: none;
+                    padding: 0
+                }
+
+                button,
+                html [type=button],
+                [type=reset],
+                [type=submit] {
+                    -webkit-appearance: button;
+                    -moz-appearance: button;
+                    appearance: button
+                }
+
+                button,
+                input,
+                select,
+                textarea {
+                    background-color: transparent;
+                    border-style: none
+                }
+
+                button:-moz-focusring,
+                [type=button]::-moz-focus-inner,
+                [type=reset]::-moz-focus-inner,
+                [type=submit]::-moz-focus-inner {
+                    outline: 1px dotted ButtonText
+                }
+
+                select {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none
+                }
+
+                a:focus,
+                button:focus,
+                input:focus,
+                select:focus,
+                textarea:focus {
+                    outline-width: 0
+                }
+
+                select::-ms-expand {
+                    display: none
+                }
+
+                select::-ms-value {
+                    color: currentcolor
+                }
+
+                legend {
+                    border: 0;
+                    color: inherit;
+                    display: table;
+                    white-space: normal;
+                    max-width: 100%
+                }
+
+                ::-webkit-file-upload-button {
+                    -webkit-appearance: button;
+                    -moz-appearance: button;
+                    appearance: button;
+                    color: inherit;
+                    font: inherit
+                }
+
+                [disabled] {
+                    cursor: default
+                }
+
+                img {
+                    border-style: none
+                }
+
+                progress {
+                    vertical-align: baseline
+                }
+
+                [aria-busy=true] {
+                    cursor: progress
+                }
+
+                [aria-controls] {
+                    cursor: pointer
+                }
+
+                [aria-disabled=true] {
+                    cursor: default
+                }
+
+                ul,
+                ol {
+                    list-style-type: none
+                }
+
+                figure {
+                    margin: 0
+                }
+
+                .guard-popup {
+                    font-family: FigtreeVF, sans-serif;
+                    position: fixed;
+                    z-index: 2147483638;
+                    top: 8px;
+                    left: 24px;
+                    overflow: visible;
+                    color: #222e3a;
+                    background-color: #fff;
+                    max-width: 416px;
+                    width: calc(100% - 48px);
+                    border-radius: 16px;
+                    box-shadow: 0 4px 20px #00000040;
+                    padding: 24px
+                }
+
+                .guard-popup__header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    column-gap: 16px;
+                    margin-bottom: 24px
+                }
+
+                .guard-popup__close {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 24px;
+                    height: 24px;
+                    opacity: .7
+                }
+
+                .guard-popup__img {
+                    line-height: 0;
+                    margin-bottom: 24px
+                }
+
+                .guard-popup__img img {
+                    width: 100%;
+                    aspect-ratio: 368/142;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    overflow: hidden
+                }
+
+                .guard-popup__title {
+                    font-size: 24px;
+                    line-height: 32px;
+                    margin-bottom: 8px
+                }
+
+                .guard-popup__description {
+                    font-size: 20px;
+                    line-height: 28px;
+                    font-weight: 500;
+                    color: #4a5764;
+                    margin-bottom: 28px
+                }
+
+                .guard-popup__actions {
+                    display: flex;
+                    justify-content: flex-end;
+                    column-gap: 16px
+                }
+
+                .guard-popup__btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 8px 16px;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    color: #fff;
+                    background: linear-gradient(180deg, #5695fd, #1554ff)
+                }
+            </style>
+        </template>
+        <style>
+            @font-face {
+                font-family: FigtreeVF;
+                src: url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"), url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");
+                font-weight: 100 1000;
+                font-display: swap
+            }
+        </style>
+    </veepn-guard-alert>
+</body>
+
+</html>
 <!-- Duyuru Modal -->
-<div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="announcementModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="announcementModalLabel">📣 Bizi Sosyal Medyadan Takip Edin</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-      </div>
-
-      <div class="modal-body">
-        <div class="container my-4 p-4 border rounded bg-light">
-          <div style="max-width: 720px; margin: 20px auto; padding: 24px; background: linear-gradient(135deg,#f9fafc,#eef3fb); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); font-family: 'Segoe UI',sans-serif; color: #222; text-align:center;">
-
-            <h2 style="margin-top: 0; font-size: 24px; color: #2c3e50; font-weight: bold;">
-              🌟 Bizi Sosyal Medyadan Takip Edin
-            </h2>
-
-            <p style="line-height: 1.7; font-size: 16px; margin-top: 20px;">
-              Etkinliklerimizden ve duyurularımızdan haberdar olmak için bizi sosyal medya hesaplarımızdan takip edebilirsiniz.
-            </p>
-
-            <div class="text-center my-3">
-              <a href="https://www.instagram.com/ulkemyanimda" target="_blank" class="btn btn-outline-primary mx-1 rounded-pill btn-sm">📸 Instagram</a>
-              <a href="https://x.com/ulkemyanimda" target="_blank" class="btn btn-outline-dark mx-1 rounded-pill btn-sm">𝕏 Twitter</a>
-              <a href="https://www.facebook.com/ulkemyanimda" target="_blank" class="btn btn-outline-primary mx-1 rounded-pill btn-sm">📘 Facebook</a>
-              <a href="https://www.youtube.com/@ulkem_yanimda" target="_blank" class="btn btn-outline-danger mx-1 rounded-pill btn-sm">▶️ YouTube</a>
+<div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="announcementModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="announcementModalLabel">📣 Duyuru</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
             </div>
 
-            <p style="margin-top: 20px; font-size: 14px;">
-              Sevgiyle,<br><strong>Ülkem Yanımda Ekibi</strong>
-            </p>
-          </div>
-        </div>
-      </div>
+            <div class="modal-body">
+                <div class="container my-4 p-4 border rounded bg-light">
+                    <div
+                        style="max-width: 720px; margin: 20px auto; padding: 24px; background: linear-gradient(135deg,#f9fafc,#eef3fb); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); font-family: 'Segoe UI',sans-serif; color: #222; text-align:center;">
 
+                        <!-- Görsel ve Link -->
+                        <a href="https://ulkemyanimda.eba.gov.tr/duyuru.html" target="_blank" class="d-block mb-4">
+                            <img src="./index_files/dil.jpg" class="img-fluid rounded shadow-sm"
+                                alt="Dünya Türk Dili Ailesi Günü" style="max-height: 400px; width: auto;">
+                        </a>
+
+                        <!-- Metin -->
+                        <h4 style="color: #2c3e50; font-weight: bold; margin-bottom: 20px;">
+                            “Dünya Türk Dili Ailesi Günü”
+                        </h4>
+
+                        <p style="line-height: 1.7; font-size: 16px; margin-bottom: 20px;">
+                            Değerli Katılımcımız, “Dünya Türk Dili Ailesi Günü” vesilesiyle düzenleyeceğimiz çevrim içi
+                            programımızda sizleri de aramızda görmekten onur duyarız.
+                        </p>
+
+                        <div class="d-inline-block py-2 px-4 rounded-3 mb-4"
+                            style="background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                            <div class="d-flex flex-wrap justify-content-center gap-3">
+                                <span style="font-weight: 600; color: #d63384;">📅 15 Aralık 2025 Pazartesi</span>
+                                <span style="font-weight: 600; color: #0d6efd;">⏰ 20.00 (TSİ)</span>
+                            </div>
+                        </div>
+
+                        <hr class="my-3" style="opacity: 0.15;">
+
+                        <!-- Sosyal Medya (Kompakt) -->
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <span style="font-size: 14px; color: #666; margin-right: 5px;">Bizi Takip Edin:</span>
+                            <a href="https://www.instagram.com/ulkemyanimda" target="_blank"
+                                class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 36px; height: 36px;" title="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://x.com/ulkemyanimda" target="_blank"
+                                class="btn btn-outline-dark btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 36px; height: 36px;" title="X (Twitter)"><i
+                                    class="bi bi-twitter-x"></i></a>
+                            <a href="https://www.facebook.com/ulkemyanimda" target="_blank"
+                                class="btn btn-outline-primary btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 36px; height: 36px;" title="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.youtube.com/@ulkem_yanimda" target="_blank"
+                                class="btn btn-outline-danger btn-sm rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 36px; height: 36px;" title="YouTube"><i class="bi bi-youtube"></i></a>
+                        </div>
+
+                        <p style="margin-top: 20px; font-size: 13px; color: #888;">
+                            Sevgiyle,<br><strong>Ülkem Yanımda Ekibi</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
 </div>
 
 
@@ -690,19 +1812,19 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 
 
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
-      </div>
-    </div>
-  </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+</div>
+</div>
+</div>
 </div>
 
 <!-- Modal'ı otomatik göster -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  window.addEventListener('load', function () {
-    var myModal = new bootstrap.Modal(document.getElementById('announcementModal'));
-    myModal.show();
-  });
+    window.addEventListener('load', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('announcementModal'));
+        myModal.show();
+    });
 </script>
