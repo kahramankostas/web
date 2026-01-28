@@ -154,17 +154,26 @@ header .header-container .login-buttons .btn {
   line-height: 1.2;
   text-align: center;
   vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+header .header-container .login-buttons .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header .header-container .login-buttons .btn.login {
   color: white;
   background-color: #0034b3;
   margin-left: 5px;
+  transition: all 0.3s ease;
 }
 
 header .header-container .login-buttons .btn.login:hover {
   color: #0034b3;
   background-color: #5fcad0;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-body {
@@ -734,3 +743,52 @@ footer.bottom-notes {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Important Link Items in Popup */
+.important-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.important-link-item img {
+  height: 32px !important;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.important-link-item:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 182, 191, 0.2);
+  border-color: #00B6BF;
+  z-index: 10;
+}
+
+.important-link-item:hover img {
+  transform: scale(1.1);
+}
+
+.important-link-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 182, 191, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.important-link-item:hover::after {
+  opacity: 1;
+}
