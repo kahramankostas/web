@@ -405,36 +405,75 @@
 
         <script>
             (function () {
-                const galleryItems = [
-                    { img: './index_files/discover-2.png', link: 'https://ulkemyanimda.eba.gov.tr/kitap/' },
-                    { img: './index_files/discover-3.png', link: 'https://www.youtube.com/watch?v=_tyMDDiiZV0' },
-                    { img: './index_files/discover-4.png', link: 'https://www.youtube.com/watch?v=2coMuQQ9qaQ' },
-                    { img: './index_files/discover-1.png', link: 'index_files/haber1.jpg' },
-                    { img: './index_files/discover-5.png', link: 'https://ulkemyanimda.github.io/posta/index.html' },
-                    { img: './index_files/discover-6.jpg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=360' },
-                    { img: './index_files/discover-7.jpeg', link: 'https://ulkemyanimda.eba.gov.tr/moodle/course/view.php?id=359' },
-                    { img: './index_files/discover-8.jpg', link: 'https://www.youtube.com/watch?v=F4BrdSVBVoM' },
-                    { img: './index_files/discover-9.jpg', link: 'https://www.youtube.com/watch?v=yrtpMH-Y_Ow' },
-                    { img: './index_files/discover-10.jpg', link: 'https://www.youtube.com/watch?v=nvTAqvESLwE' }
+                const galleryImages = [
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/01.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/02.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/03.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/04.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/05.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/06.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/07.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/08.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/09.jpg',
+                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/10.jpg'
                 ];
 
                 const track = document.getElementById('galleryTrack');
                 if (!track) return;
 
-                const allItems = [].concat(galleryItems, galleryItems);
+                fetch('https://ulkemyanimda.github.io/duyuru/kayanresim/adresler.txt')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(text => {
+                        // Split by newline and filter out empty lines
+                        const links = text.split(/\r?\n/).filter(line => line.trim() !== '');
 
-                allItems.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'gallery-item';
-                    div.onclick = () => window.open(item.link, '_blank');
+                        // Use the links from the file, fallback to empty string if not enough links
+                        // We will map over the images and use the corresponding link by index
+                        // If there are more images than links, we'll reuse the last link or empty
 
-                    const img = document.createElement('img');
-                    img.src = item.img;
-                    img.alt = 'Galeri görseli';
+                        const galleryItems = galleryImages.map((img, index) => {
+                            return {
+                                img: img,
+                                link: links[index] || '#' // Fallback to # if link is missing
+                            };
+                        });
 
-                    div.appendChild(img);
-                    track.appendChild(div);
-                });
+                        renderGallery(galleryItems);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching gallery links:', error);
+                        // Fallback: render with original/default links or just images without links
+                        // For now, let's render with the images and empty links so the gallery still shows up
+                        const galleryItems = galleryImages.map(img => ({ img: img, link: '#' }));
+                        renderGallery(galleryItems);
+                    });
+
+                function renderGallery(items) {
+                    // Double the items for seamless scrolling effect
+                    const allItems = [].concat(items, items);
+
+                    allItems.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'gallery-item';
+                        div.onclick = () => {
+                            if (item.link && item.link !== '#') {
+                                window.open(item.link, '_blank');
+                            }
+                        };
+
+                        const img = document.createElement('img');
+                        img.src = item.img;
+                        img.alt = 'Galeri görseli';
+
+                        div.appendChild(img);
+                        track.appendChild(div);
+                    });
+                }
             })();
         </script>
     </section>
@@ -1770,48 +1809,48 @@
                 <div class="bg-light p-3 text-center border-bottom">
                     <p class="mb-2 text-muted fw-bold" style="font-size: 0.9rem;">Önemli Bağlantılar</p>
                     <div class="d-flex justify-content-center gap-3 flex-wrap">
-					
-					
-					
-					
+
+
+
+
                         <a href="http://ulkemyanimda.github.io/ustmenu/takvim.html" target="_blank"
                             title="Akademik Takvim" class="important-link-item">
                             <img src="index_files/takvim.png" alt="Akademik Takvim">
                         </a>
-						
-                        <a href="https://memleketim.github.io/" target="_blank"
-                            title="81 İli Tanıyalım " class="important-link-item">
+
+                        <a href="https://memleketim.github.io/" target="_blank" title="81 İli Tanıyalım "
+                            class="important-link-item">
                             <img src="index_files/memleketim.png" alt="81 İli Tanıyalım ">
                         </a>
-						
-						
-						<a href="https://materyalfabrikasi.github.io/" target="_blank"
-                            title="Materyal Fabrikası" class="important-link-item">
+
+
+                        <a href="https://materyalfabrikasi.github.io/" target="_blank" title="Materyal Fabrikası"
+                            class="important-link-item">
                             <img src="index_files/mf.png" alt="Materyal Fabrikası">
                         </a>
-						
-						
-						                        <a href="https://kelimehazinem.github.io/index.html" target="_blank"
-                            title="Kelime Hazinem" class="important-link-item">
+
+
+                        <a href="https://kelimehazinem.github.io/index.html" target="_blank" title="Kelime Hazinem"
+                            class="important-link-item">
                             <img src="index_files/trsozluk.png" alt="Kelime Hazinem">
                         </a>
-						
-						
-						
-						
 
 
 
-			
-						
-						
-						
+
+
+
+
+
+
+
+
                         <a href="http://ulkemyanimda.github.io/ustmenu/eba.html" target="_blank" title="EBA Açık Erişim"
                             class="important-link-item">
                             <img src="index_files/eba.png" alt="EBA Açık Erişim">
                         </a>
-                        <a href="http://ulkemyanimda.github.io/ustmenu/flipbook/index.html" target="_blank" title="Veli Rehberi"
-                            class="important-link-item">
+                        <a href="http://ulkemyanimda.github.io/ustmenu/flipbook/index.html" target="_blank"
+                            title="Veli Rehberi" class="important-link-item">
                             <img src="index_files/veli.png" alt="Veli Rehberi">
                         </a>
                         <a href="http://ulkemyanimda.github.io/ustmenu/saat.html" target="_blank" title="Yerel Saatler"
