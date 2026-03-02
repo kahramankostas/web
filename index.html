@@ -925,16 +925,16 @@
                 </div>
             </div>
             <div class="row stat-images mt-4">
-                <div class="col-6 col-md-3 mb-3 px-2">
+                <div class="col-6 col-md-3 mb-3 px-2 stat-card" data-bs-toggle="modal" data-bs-target="#statModal">
                     <img src="./index_files/stat-1.svg">
                 </div>
-                <div class="col-6 col-md-3 mb-3 px-2">
+                <div class="col-6 col-md-3 mb-3 px-2 stat-card" data-bs-toggle="modal" data-bs-target="#statModal">
                     <img src="./index_files/stat-2.svg">
                 </div>
-                <div class="col-6 col-md-3 mb-3 px-2">
+                <div class="col-6 col-md-3 mb-3 px-2 stat-card" data-bs-toggle="modal" data-bs-target="#statModal">
                     <img src="./index_files/stat-3.svg">
                 </div>
-                <div class="col-6 col-md-3 mb-3 px-2">
+                <div class="col-6 col-md-3 mb-3 px-2 stat-card" data-bs-toggle="modal" data-bs-target="#statModal">
                     <img src="./index_files/stat-4.svg">
                 </div>
             </div>
@@ -944,6 +944,36 @@
                 </div>
             </div>
         </div>
+
+        <!-- İstatistikler Modalı -->
+        <div class="modal fade" id="statModal" tabindex="-1" aria-labelledby="statModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content"
+                    style="border-radius: 16px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); background-color: transparent;">
+                    <div class="modal-header" style="border-bottom: none; position: absolute; right: 0; z-index: 10;">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"
+                            style="background-color: white; border-radius: 50%; padding: 10px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></button>
+                    </div>
+                    <div class="modal-body text-center p-0">
+                        <img src="./index_files/ulkeler.jpg" alt="Bilgi Kartı" class="img-fluid"
+                            style="border-radius: 16px; width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .stat-card {
+                cursor: pointer;
+                transition: transform 0.3s ease, filter 0.3s ease;
+            }
+
+            .stat-card:hover {
+                transform: scale(1.05) translateY(-5px);
+                filter: brightness(1.05);
+            }
+        </style>
     </section>
 
     <section class="meb-footer">
