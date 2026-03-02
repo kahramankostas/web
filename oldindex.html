@@ -223,13 +223,8 @@
     </div>
 
     <section class="slider">
-        <div class="slider-container">
-            <img src="./index_files/slayt.jpg" alt="slider" class="d-none d-md-block">
-            <img src="./index_files/slayt_narrow.jpg" alt="slider" class="d-md-none">
-            <div class="slider-caption">
-                Yurt Dışındaki Öğrenciler İçin Türkçe ve Türk Kültürü Eğitim Platformu
-            </div>
-        </div>
+        <img src="./index_files/slayt.jpg" alt="slider" class="d-none d-md-block">
+        <img src="./index_files/slayt_narrow.jpg" alt="slider" class="d-md-none">
     </section>
     <!--
     <section class="discover">
@@ -316,19 +311,11 @@
 
     <!-- Başlangıç: Hareketli Galeri (scrolling gallery'den alındı) -->
     <section class="moving-gallery">
-        <div class="container-md relative">
+        <div class="container-md">
             <h2 class="mg-title" style="color: #00B6BF; font-weight: bold;">Keşfet</h2>
-            <div class="gallery-container" id="galleryContainer">
+            <div class="gallery-container">
                 <div class="gallery-track" id="galleryTrack"></div>
             </div>
-
-            <!-- Navigation Buttons -->
-            <button class="gallery-nav-btn prev-btn" id="prevBtn" aria-label="Önceki">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            <button class="gallery-nav-btn next-btn" id="nextBtn" aria-label="Sonraki">
-                <i class="bi bi-chevron-right"></i>
-            </button>
         </div>
 
         <style>
@@ -345,7 +332,6 @@
             .moving-gallery .gallery-container {
                 width: 100%;
                 overflow: hidden;
-                position: relative;
             }
 
             .moving-gallery .gallery-track {
@@ -353,13 +339,6 @@
                 gap: 20px;
                 animation: mg-scroll 40s linear infinite;
                 width: fit-content;
-                /* Enables smooth manual scrolling */
-                transition: transform 0.5s ease-out;
-            }
-
-            /* Stop animation when manually navigating */
-            .moving-gallery .gallery-track.paused {
-                animation: none !important;
             }
 
             .moving-gallery .gallery-item {
@@ -412,68 +391,8 @@
                 }
             }
 
-            .moving-gallery .gallery-container:hover .gallery-track {
+            .moving-gallery .gallery-track:hover {
                 animation-play-state: paused;
-            }
-
-            /* Navigation Buttons Styles */
-            .gallery-nav-btn {
-                position: absolute;
-                top: 55%;
-                transform: translateY(-50%);
-                width: 48px;
-                height: 48px;
-                background-color: rgba(255, 255, 255, 0.9);
-                border: 2px solid #00B6BF;
-                border-radius: 50%;
-                color: #00B6BF;
-                font-size: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                z-index: 10;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                opacity: 0;
-                /* Hidden by default, shown on hover of the section */
-            }
-
-            .moving-gallery .container-md:hover .gallery-nav-btn {
-                opacity: 1;
-            }
-
-            .gallery-nav-btn:hover {
-                background-color: #00B6BF;
-                color: white;
-                box-shadow: 0 6px 16px rgba(0, 182, 191, 0.4);
-                transform: translateY(-50%) scale(1.1);
-            }
-
-            .prev-btn {
-                left: -15px;
-            }
-
-            .next-btn {
-                right: -15px;
-            }
-
-            @media (max-width: 768px) {
-                .gallery-nav-btn {
-                    opacity: 1;
-                    /* Always show on mobile */
-                    width: 40px;
-                    height: 40px;
-                    font-size: 16px;
-                }
-
-                .prev-btn {
-                    left: 0;
-                }
-
-                .next-btn {
-                    right: 0;
-                }
             }
 
             @media (max-width: 576px) {
@@ -500,13 +419,7 @@
                 ];
 
                 const track = document.getElementById('galleryTrack');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
                 if (!track) return;
-
-                let currentScrollPos = 0;
-                let isManuallyScrolling = false;
-                let manualScrollTimeout;
 
                 fetch('https://ulkemyanimda.github.io/duyuru/kayanresim/adresler.txt')
                     .then(response => {
@@ -519,6 +432,10 @@
                         // Split by newline and filter out empty lines
                         const links = text.split(/\r?\n/).filter(line => line.trim() !== '');
 
+                        // Use the links from the file, fallback to empty string if not enough links
+                        // We will map over the images and use the corresponding link by index
+                        // If there are more images than links, we'll reuse the last link or empty
+
                         const galleryItems = galleryImages.map((img, index) => {
                             return {
                                 img: img,
@@ -530,6 +447,8 @@
                     })
                     .catch(error => {
                         console.error('Error fetching gallery links:', error);
+                        // Fallback: render with original/default links or just images without links
+                        // For now, let's render with the images and empty links so the gallery still shows up
                         const galleryItems = galleryImages.map(img => ({ img: img, link: '#' }));
                         renderGallery(galleryItems);
                     });
@@ -554,56 +473,6 @@
                         div.appendChild(img);
                         track.appendChild(div);
                     });
-
-                    setupNavigation();
-                }
-
-                function setupNavigation() {
-                    const itemWidth = track.children[0].offsetWidth + 20; // width + gap
-
-                    function handleManualScroll(direction) {
-                        isManuallyScrolling = true;
-                        track.classList.add('paused');
-
-                        // Calculate current position if we were animating
-                        if (currentScrollPos === 0) {
-                            const computedStyle = window.getComputedStyle(track);
-                            const matrix = new WebKitCSSMatrix(computedStyle.transform);
-                            currentScrollPos = matrix.m41;
-                        }
-
-                        // Limit scrolling so we don't go entirely off string, though we have 2x items
-                        const maxScroll = -(track.scrollWidth / 2);
-
-                        if (direction === 'next') {
-                            currentScrollPos -= itemWidth * 2; // Scroll 2 items
-                        } else {
-                            currentScrollPos += itemWidth * 2; // Scroll 2 items
-                        }
-
-                        // Simple boundary logic for the infinite feel
-                        if (currentScrollPos > 0) currentScrollPos = maxScroll;
-                        if (currentScrollPos < maxScroll * 2 + window.innerWidth) currentScrollPos = 0;
-
-                        track.style.transform = `translateX(${currentScrollPos}px)`;
-
-                        // Resume animation after some time of inactivity
-                        clearTimeout(manualScrollTimeout);
-                        manualScrollTimeout = setTimeout(() => {
-                            isManuallyScrolling = false;
-
-                            // To smoothly resume, we'd ideally reset the animation or let it continue from current pos.
-                            // The simplest robust approach is to remove manual transform and let CSS animation take over again.
-                            track.style.transform = '';
-                            track.classList.remove('paused');
-                            currentScrollPos = 0;
-                        }, 5000); // 5 seconds after last click, resume auto-scroll
-                    }
-
-                    if (prevBtn && nextBtn) {
-                        prevBtn.addEventListener('click', () => handleManualScroll('prev'));
-                        nextBtn.addEventListener('click', () => handleManualScroll('next'));
-                    }
                 }
             })();
         </script>
@@ -613,56 +482,35 @@
     <section class="about">
         <div class="container-md">
             <div class="row justify-content-center text-center">
-                <div class="col-sm-9 col-md-9 col-lg-4 mb-4">
-                    <div class="about-box h-100">
-                        <div class="about-title">Ülkem Yanımda Nedir?</div>
+                <div class="col-sm-9 col-md-9 col-lg-6 mb-4">
+                    <div class="about-box">
+                        <div class="about-title">Ülkem Yanımda'yı Kimler Kullanabilir?</div>
                         <div class="about-image">
-                            <img src="./index_files/image-1.svg" alt="Ülkem Yanımda Nedir?">
+                            <img src="./index_files/image-1.svg" alt="Ülkem Yanımda'yı Kimler Kullanabilir?">
                         </div>
                         <div class="about-text">
-                            Ülkem Yanımda, yurt dışında yaşayan çocuklara Türkçe dil becerileri ve Türk kültürünü
-                            kazandırmayı amaçlayan dijital bir eğitim platformudur. Platform, uzman öğretmenler
-                            eşliğinde gerçekleştirilen çevrim içi dersler ve dijital eğitim materyalleri ile
-                            öğrencilerin hem akademik hem kültürel gelişimini desteklemektedir. Ülkem Yanımda,
-                            öğrencilerin Türkçe ile bağlarını güçlendirmeyi ve kültürel mirasımızla tanışmalarını
-                            sağlamayı hedeflemektedir.
+                            Ülkem Yanımda, yurt dışında yaşayan 5-16 yaş arası Türk soylu çocuklara Türkçe ve Türk
+                            kültürünü öğretmeyi amaçlayan yenilikçi bir dijital eğitim platformudur. Platform, çevrim
+                            içi dersler ile öğrencilere aktif bir öğrenme ortamı sunmaktadır. Uzman öğretmenler
+                            eşliğinde gerçekleştirilen derslerde öğrenciler, Türkçe dil becerilerini geliştirirken aynı
+                            zamanda kültürel mirasımızla da yakından tanışma fırsatı bulmaktadır. Üstelik platforma
+                            kaydolmak tamamen ücretsizdir ve herkes sisteme üye olarak bu derslerden faydalanabilir.
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-9 col-md-9 col-lg-4 mb-4">
-                    <div class="about-box h-100">
-                        <div class="about-title">Ne Sunar?</div>
+                <div class="col-sm-9 col-md-9 col-lg-6">
+                    <div class="about-box">
+                        <div class="about-title">Ülkem Yanımda'da Neler Var?</div>
                         <div class="about-image">
-                            <img src="./index_files/image-2.svg" alt="Ne Sunar?">
+                            <img src="./index_files/image-2.svg" alt="Ülkem Yanımda'da Neler Var?">
                         </div>
                         <div class="about-text">
-                            Ülkem Yanımda yalnızca canlı derslerle değil, çeşitli dijital eğitim materyalleriyle de
-                            zengin bir öğrenme deneyimi sunmaktadır. Platformda ders kitapları, sesli kitaplar, eğitici
-                            videolar, müzikler ve interaktif oyunlar gibi pek çok içerik yer almaktadır. Bunun yanı sıra
-                            öğrencilerin motivasyonlarını artırmak amacıyla yıl içerisinde ödüllü yarışmalar
-                            düzenlenmektedir. Bu sayede öğrenciler hem eğlenerek öğrenmekte hem de kültürel ve akademik
-                            gelişimlerini destekleyen etkinliklere katılabilmektedir.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-9 col-md-9 col-lg-4 mb-4">
-                    <div class="about-box h-100">
-                        <div class="about-title">Kimler Kullanabilir?</div>
-                        <div class="about-image">
-                            <img src="./index_files/image-3.svg" alt="Kimler Kullanabilir?">
-                        </div>
-                        <div class="about-text">
-                            Ülkem Yanımda, yurt dışında yaşayan 5–16 yaş arası Türk soylu çocuklara yönelik olarak
-                            hazırlanmış bir dijital eğitim platformudur. Programa katılmak isteyen öğrenciler sisteme
-                            ücretsiz olarak kayıt yaptırarak canlı derslere ve öğrenciye özel öğrenme içeriklerine
-                            erişebilirler. Bu sayede öğrenciler uzman öğretmenler eşliğinde Türkçe dil becerilerini
-                            geliştirme ve Türk kültürünü daha yakından tanıma imkânı bulmaktadır.
-
-                            <!--Ders kitapları, okuma
-                            materyalleri, sesli içerikler, eğitici videolar ve çeşitli dijital kaynaklar öğrencilerin
-                            bireysel olarak öğrenmelerini desteklemek amacıyla herkesin kullanımına sunulmaktadır.
-                        -->
-                        </div>
+                            Ülkem Yanımda, yalnızca canlı derslerle değil, çeşitli dijital eğitim materyalleriyle de
+                            zengin bir öğrenme deneyimi sunmaktadır. Platformda, ders kitapları, sesli kitaplar, eğitici
+                            videolar, müzikler, interaktif oyunlar gibi pek çok içerik yer almaktadır. Bunun yanı sıra
+                            öğrencilerin motivasyonlarını artırmak ve onları teşvik etmek amacıyla yıl içerisinde ödüllü
+                            yarışmalar düzenlenmektedir. Bu sayede öğrenciler hem eğlenerek öğrenme fırsatı bulmakta hem
+                            de kültürel ve akademik gelişimlerini destekleyici etkinliklere katılabilmektedir. </div>
                     </div>
                 </div>
             </div>
@@ -675,115 +523,87 @@
                 <div class="col-12 text-center">
                     <div class="features-title">Ülkem Yanımda Neler Sunuyor?</div>
                     <div class="feature-images container">
-                        <div class="row justify-content-center">
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Çevrimiçi Dersler"
-                                data-content="Alanında uzman öğretmenlerimizin rehberliğinde düzenlenen interaktif ve verimli çevrim içi derslere katılabilirsiniz. Sistemimize kayıt olan öğrencilerimiz, kendi seçtikleri saatlerde 5–15 kişilik sınıflarda, haftada 2 saat derslere katılır. Derslerimiz ABD ve Çin’de hafta sonları; Avrupa’da ise hafta sonlarına ek olarak salı, çarşamba ve perşembe akşamları gerçekleştirilmektedir. 
-                                Hizmet verdiğimiz ülkeler arasında Amerika Birleşik Devletleri, Bosna Hersek, Bulgaristan, Çin, Danimarka, Finlandiya, Hollanda, İspanya, İsveç, İtalya, İzlanda, Kanada, Karadağ, Norveç, Romanya ve Senegal yer almaktadır.">
+                        <div class="row">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-01.svg">
                                 <div class="feature-text" style="left: 40%;">
                                     <span>Çevrimiçi Dersler</span>
                                 </div>
                             </div>
-                            <!-- <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Seviye Belirleme Sınavları"
-                                data-content="Kendinizi test edebilir ve mevcut Türkçe seviyenizi en doğru şekilde belirleyerek uygun sınıflarda eğitim alabilirsiniz.">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-02.svg">
                                 <div class="feature-text" style="left: 40%;">
                                     <span>Seviye Belirleme Sınavları</span>
                                 </div>
-                            </div>-->
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Seviye ve Yaşa Uygun Sınıflar"
-                                data-content="Öğrencilerimiz için sınıflar, sadece yaşa veya sadece dil seviyesine bakılarak değil, her iki kritere göre birleştirilip özel olarak oluşturulur. Böylece her öğrenci, hem yaşına hem de Türkçe becerisine en uygun ortamda eğitim alır."
-                                data-link="https://ulkemyanimda.github.io/linkler/seviye.html">
+                            </div>
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-12.svg">
                                 <div class="feature-text" style="left: 43%;">
                                     <span>Seviye ve Yaşa Uygun Sınıflar</span>
+
                                 </div>
                             </div>
-                            <!--<div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Yapay Zekâ Desteği"
-                                data-content="Gelişmiş yapay zekâ analizleriyle öğrencilerimizin gelişimleri takip edilerek kişiselleştirilmiş öğrenme yolları sunulmaktadır.">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-04.svg">
                                 <div class="feature-text" style="left: 43%;">
                                     <span>Yapay Zekâ Desteği</span>
                                 </div>
-                            </div>  -->
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Kitaplar"
-                                data-content="Türk kültürünü ve değerlerimizi anlatan özenle seçilmiş birbirinden değerli dijital kitaplara erişim imkânı."
-                                data-link="https://ulkemyanimda.github.io/books.html">
+                            </div>
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-05.svg">
                                 <div class="feature-text" style="left: 35%;">
                                     <span>Kitaplar</span>
                                 </div>
                             </div>
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Oyunlar"
-                                data-content="Öğrenmeyi eğlenceli hale getiren, Türkçe kelime dağarcığını geliştiren ve kültürel ögeler içeren etkileşimli oyunlar."
-                                data-link="https://ulkemyanimda.github.io/oyun/index.html">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-06.svg">
                                 <div class="feature-text" style="left: 37%;">
                                     <span>Oyunlar</span>
                                 </div>
                             </div>
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Sesli Kitaplar"
-                                data-content="Dinleme becerilerinizi geliştirebileceğiniz, masallar ve hikayelerden oluşan geniş sesli kitap kütüphanesi."
-                                data-link="https://ulkemyanimda.github.io/books/sesli.html">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-07.svg">
                                 <div class="feature-text" style="left: 31%;">
                                     <span>Sesli Kitaplar</span>
                                 </div>
                             </div>
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Eğitici Videolar"
-                                data-content="Öğrencilerimizin konuları daha iyi anlamalarını destekleyen, açık ve anlaşılır anlatımla hazırlanmış eğitici videolar."
-                                data-link="https://ulkemyanimda.github.io/video.html">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-08.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
-                                    <span>Eğitici Videolar</span>
+                                    <span>Etkileşimli Videolar</span>
                                 </div>
                             </div>
 
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Kültürel Etkinlikler"
-                                data-content="Milli bayramlardan geleneksel el sanatlarına kadar geniş yelpazede Türk kültürünü tanıtan dijital atölyeler ve etkinlikler."
-                                data-link="https://ulkemyanimda.github.io/linkler/atolyeler.html">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-09.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Kültürel Etkinlikler</span>
                                 </div>
                             </div>
 
-                            <div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Yarışmalar"
-                                data-content="Öğrencilerin bilgi ve becerilerini sergileyerek sürpriz ödüller kazanabilecekleri birbirinden keyifli periyodik yarışmalar."
-                                data-link="https://ulkemyanimda.github.io/linkler/yarismalar.html">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-15.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Yarışmalar</span>
                                 </div>
                             </div>
 
-                            <!--<div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Konuşma Pratiği"
-                                data-content="Türkçe konuşma becerilerini aktif olarak kullanmayı ve akıcılığı sağlamayı hedefleyen pratik saatleri.">
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-7.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Konuşma Pratiği</span>
                                 </div>
-                            </div>      -->
+                            </div>
 
-                            <!--<div class="relative col-6 col-md-3 mb-4 px-2 feature-card" data-bs-toggle="modal"
-                                data-bs-target="#featureModal" data-title="Değerlendirme ve Geri Bildirim"
-                                data-content="Öğrenme sürecinin her aşamasında veli ve öğrencilere yönelik düzenli raporlamalar ile yapıcı geri bildirimler.">
+
+                            <div class="relative col-6 col-md-3 mb-3 px-2">
                                 <img src="./index_files/feature-20.svg">
                                 <div class="feature-text" style="left: 34%; right: 5% !important;">
                                     <span>Değerlendirme ve Geri Bildirim</span>
                                 </div>
-                            </div>  -->
+                            </div>
+
+
 
                         </div>
                     </div>
@@ -791,84 +611,6 @@
             </div>
         </div>
 
-        <!-- Özellikler Modalı -->
-        <div class="modal fade" id="featureModal" tabindex="-1" aria-labelledby="featureModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content"
-                    style="border-radius: 16px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    <div class="modal-header" style="border-bottom: none; padding-bottom: 0;">
-                        <h4 class="modal-title w-100 text-center" id="featureModalLabel"
-                            style="color: #00B6BF; font-weight: 800; font-size: 1.5rem;">Başlık</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                            style="position: absolute; right: 20px; top: 20px;"></button>
-                    </div>
-                    <div class="modal-body text-center" style="padding: 20px 30px;">
-                        <p id="featureModalContent" style="font-size: 1.1rem; color: #444; line-height: 1.6;">Açıklama
-                            metni.</p>
-                    </div>
-                    <div class="modal-footer justify-content-center"
-                        style="border-top: none; padding-top: 0; padding-bottom: 25px;">
-                        <a href="#" id="featureModalLink" target="_blank" class="btn btn-primary px-5 py-2"
-                            style="background-color: #00B6BF; border: none; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: background-color 0.3s;"
-                            onmouseover="this.style.backgroundColor='#00959c'"
-                            onmouseout="this.style.backgroundColor='#00B6BF'">Daha Fazlasını Keşfet</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <style>
-            .feature-card {
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-                border-radius: 16px;
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
-
-            .feature-card:hover {
-                transform: translateY(-8px);
-                background-color: rgba(0, 182, 191, 0.05);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            }
-
-            .feature-card img {
-                transition: transform 0.3s ease;
-            }
-
-            .feature-card:hover img {
-                transform: scale(1.08);
-            }
-        </style>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var featureModal = document.getElementById('featureModal')
-                if (featureModal) {
-                    featureModal.addEventListener('show.bs.modal', function (event) {
-                        var button = event.relatedTarget;
-                        var title = button.getAttribute('data-title');
-                        var content = button.getAttribute('data-content');
-                        var link = button.getAttribute('data-link');
-
-                        var modalTitle = featureModal.querySelector('.modal-title');
-                        var modalBodyContent = featureModal.querySelector('#featureModalContent');
-                        var modalLink = featureModal.querySelector('#featureModalLink');
-
-                        modalTitle.textContent = title;
-                        modalBodyContent.textContent = content;
-
-                        // Link varsa butonu göster ve linki ayarla, yoksa butonu gizle
-                        if (link) {
-                            modalLink.href = link;
-                            modalLink.style.display = 'inline-block';
-                        } else {
-                            modalLink.style.display = 'none';
-                        }
-                    })
-                }
-            });
-        </script>
     </section>
 
     <section class="modules">
