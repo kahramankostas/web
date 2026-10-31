@@ -817,3 +817,11 @@ footer.bottom-notes {
 .important-link-item:hover::after {
   opacity: 1;
 }
+/* Keep the banner text visible at every screen size. */
+section.slider img.platform-banner {
+  display: block;
+  width: 100% !important;
+  height: auto;
+  max-height: none;
+  transform: none !important;
+}
