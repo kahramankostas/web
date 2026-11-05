@@ -381,7 +381,8 @@
             .moving-gallery .gallery-item img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: contain;
+                background-color: #f4faff;
                 display: block;
             }
 
@@ -490,17 +491,72 @@
 
         <script>
             (function () {
-                const galleryImages = [
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/01.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/02.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/03.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/04.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/05.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/06.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/07.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/08.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/09.jpg',
-                    'https://ulkemyanimda.github.io/duyuru/kayanresim/res/10.jpg'
+                const galleryItems = [
+                    {
+                        "img": "./index_files/kesfet/01_Akademik_Takvim.png",
+                        "title": "Akademik Takvim",
+                        "link": "https://ulkemyanimda.github.io/ustmenu/takvim.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/02_Materyal_Fabrikasi.png",
+                        "title": "Materyal Fabrikası",
+                        "link": "https://materyalfabrikasi.github.io/"
+                    },
+                    {
+                        "img": "./index_files/kesfet/03_Kelime_Hazinem.png",
+                        "title": "Kelime Hazinem",
+                        "link": "https://kelimehazinem.github.io/index.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/04_Karamel.png",
+                        "title": "Karamel",
+                        "link": "https://storiesofturkiye.github.io/index.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/05_Dijital_Kopru.png",
+                        "title": "Dijital Köprü",
+                        "link": "https://dijitalkopru.github.io//index.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/06_Veli_Koprusu.png",
+                        "title": "Veli Köprüsü",
+                        "link": "https://ulkemyanimda.github.io/ustmenu/flipbook/index.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/07_Yerel_Saatler.png",
+                        "title": "Yerel Saatler",
+                        "link": "https://ulkemyanimda.github.io/ustmenu/saat.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/08_81_Ili_Taniyorum.png",
+                        "title": "81 İli Tanıyorum",
+                        "link": "https://memleketim.github.io/"
+                    },
+                    {
+                        "img": "./index_files/kesfet/09_Sikca_Sorulan_Sorular.png",
+                        "title": "Sıkça Sorulan Sorular",
+                        "link": "https://ulkemyanimda.github.io/ustmenu/sss.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/10_YYEGM.png",
+                        "title": "YYEGM",
+                        "link": "https://yyegm.meb.gov.tr/"
+                    },
+                    {
+                        "img": "./index_files/kesfet/11_Gonul_Koprusu.png",
+                        "title": "Gönül Köprüsü",
+                        "link": "https://ulkemyanimda.github.io/linkler/gul.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/12_Basinda_Biz.png",
+                        "title": "Basında Biz",
+                        "link": "https://ulkemyanimda.github.io/basin.html"
+                    },
+                    {
+                        "img": "./index_files/kesfet/13_Tanitim_Videosu.png",
+                        "title": "Tanıtım Videosu",
+                        "link": "https://ulkemyanimda.github.io/linkler/tanitim.html"
+                    }
                 ];
 
                 const track = document.getElementById('galleryTrack');
@@ -512,48 +568,22 @@
                 let isManuallyScrolling = false;
                 let manualScrollTimeout;
 
-                fetch('https://ulkemyanimda.github.io/duyuru/kayanresim/adresler.txt')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.text();
-                    })
-                    .then(text => {
-                        // Split by newline and filter out empty lines
-                        const links = text.split(/\r?\n/).filter(line => line.trim() !== '');
-
-                        const galleryItems = galleryImages.map((img, index) => {
-                            return {
-                                img: img,
-                                link: links[index] || '#' // Fallback to # if link is missing
-                            };
-                        });
-
-                        renderGallery(galleryItems);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching gallery links:', error);
-                        const galleryItems = galleryImages.map(img => ({ img: img, link: '#' }));
-                        renderGallery(galleryItems);
-                    });
+                renderGallery(galleryItems);
 
                 function renderGallery(items) {
                     // Double the items for seamless scrolling effect
                     const allItems = [].concat(items, items);
 
                     allItems.forEach(item => {
-                        const div = document.createElement('div');
+                        const div = document.createElement('a');
                         div.className = 'gallery-item';
-                        div.onclick = () => {
-                            if (item.link && item.link !== '#') {
-                                window.open(item.link, '_blank');
-                            }
-                        };
+                        div.href = item.link;
+                        div.target = '_blank';
+                        div.rel = 'noopener noreferrer';
 
                         const img = document.createElement('img');
                         img.src = item.img;
-                        img.alt = 'Galeri görseli';
+                        img.alt = item.title;
 
                         div.appendChild(img);
                         track.appendChild(div);
